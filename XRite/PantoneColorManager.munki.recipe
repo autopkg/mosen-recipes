@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Unpack Pantone Color Manager
+
+    You will still need to activate PCM with your PANTONE registration.
+    Either by registering your PANTONE color guide or buy purchasing an application license separately.
+
+    If you don't have X-Rite Device Services installed, this package will also install that to support calibration
+    via spectrophotometer.
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.munki.PantoneColorManager</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>PANTONE Color Manager</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/XRite</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>blocking_applications</key>
+            <array>
+                <string>PANTONE Color Manager</string>
+            </array>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>COLOR MANAGER Software is a robust desktop application that provides the assurance and confidence to use the latest PANTONE Colors accurately.</string>
+            <key>display_name</key>
+            <string>PANTONE Color Manager</string>
+            <key>name</key>
+            <string>%NAME%</string>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.download.PantoneColorManager</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>archive_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.pkg</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
