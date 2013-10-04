@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+        Import dmg into munki as CopyFromDmg type installer.
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.munki.BarcodeProducer</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Barcode Producer</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/ItsApparent</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>blocking_applications</key>
+            <array>
+                <string>Barcode Producer</string>
+            </array>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>Barcode Producer 6 creates barcode graphics for retail packages, books, stickers, and more. Design, customize, then send finished EPS graphics right to Adobe Illustrator, InDesign, or Photoshop.</string>
+            <key>display_name</key>
+            <string>Barcode Producer</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.download.BarcodeProducer</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+                <key>munkiimport_appname</key>
+                <string>Barcode Producer/Barcode Producer.app</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
