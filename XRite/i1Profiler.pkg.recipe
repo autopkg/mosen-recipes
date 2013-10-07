@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Remove interactive scripts and applications (usually AppleScripts) to allow for unattended installation.
+
+    The i1Profiler mpkg runs loginitem.app to get i1ProfilerTray.app into Login Items. 
+    It also launches the tray application during the install. 
+
+    These are both removed from the post
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.pkg.i1Profiler</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>i1Profiler</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.download.i1Profiler</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>archive_path</key>
+                <string>%pathname%</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>flat_pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.pkg</string>
+                <key>skip_payload</key>
+                <false/>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/FlatPkgContents</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_content</key>
+                <string>#!/bin/bash
+
+echo "postinstall script start******"
+pwd
+ls 
+# autopkg: do not run applet to append loginitem
+# autopkg: TODO - may need to create a LaunchItem to replace modification of login items
+# TODO: only launch app if install is without logout
+#echo "Launching the app"
+#open /Applications/i1Profiler/i1ProfilerTray.app
+echo "Return Code:"
+echo $?
+echo "postinstall script end******"
+</string>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/FlatPkgContents/i1ProfilerTrayComponent.pkg/Scripts/postinstall</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgroot</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%/FlatPkgContents</string>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                    <key>id</key>
+                    <string>com.xrite.i1profiler.pkg</string>
+                    <key>pkgname</key>
+                    <string>%NAME%</string>
+                    <key>resources</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%/FlatPkgContents/Resources</string>
+                    <key>version</key>
+                    <string>1.5.0.14211</string>
+                    <key>chown</key>
+                    <array>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
