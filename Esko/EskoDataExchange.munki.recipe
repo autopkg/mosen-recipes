@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Import Esko Data Exchange into Munki.
+
+    A restart is required for the licensing system to work.
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.munki.EskoDataExchange</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Esko Data Exchange</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>plugins/Esko</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>blocking_applications</key>
+            <array>
+                <string>Adobe Illustrator CS5</string>
+                <string>Adobe Illustrator CS5.1</string>
+                <string>Adobe Illustrator CS6</string>
+                <string>Adobe Illustrator CC</string>
+            </array>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>Esko Data Exchange for Adobe Illustrator</string>
+            <key>display_name</key>
+            <string>Esko Data Exchange for Adobe Illustrator</string>
+            <key>minimum_os_version</key>
+            <string>10.6.0</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>notes</key>
+            <string>Although this package requires illustrator, it does not check for the existence of Illustrator.</string>
+            <key>RestartAction</key>
+            <string>RecommendRestart</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.pkg.EskoDataExchange</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%dmg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>        
+    </array>
+</dict>
+</plist>

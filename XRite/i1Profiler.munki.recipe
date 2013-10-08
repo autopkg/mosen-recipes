@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Import Modified i1Profiler Package into Munki
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.munki.i1Profiler</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>i1Profiler</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/XRite</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>blocking_applications</key>
+            <array>
+                <string>i1ProfilerTray</string>
+                <string>i1Profiler</string>
+            </array>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>i1Profiler Profile Creation Tool</string>
+            <key>display_name</key>
+            <string>i1Profiler</string>
+            <key>minimum_os_version</key>
+            <string>10.5.0</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.pkg.i1Profiler</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%dmg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>        
+    </array>
+</dict>
+</plist>
