@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Downloads the current release version of 0xED.
+    0xED may be discontinued.
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.download.0xED</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>0xED</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://www.suavetech.com/cgi-bin/download.cgi?0xED.tar.bz2</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>filename</key>
+                <string>%NAME%.tar.bz2</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
