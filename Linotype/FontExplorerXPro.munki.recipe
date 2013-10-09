@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Import FontExplorer X Pro into Munki.
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.munki.FontExplorerXPro</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>FontExplorerXPro</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/Linotype</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>blocking_applications</key>
+            <array>
+                <string>FontExplorer X Pro</string>
+            </array>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>FontExplorer X is the simple and speedy way to find and curate all of your fonts.</string>
+            <key>display_name</key>
+            <string>FontExplorer X Pro</string>
+            <key>minimum_os_version</key>
+            <string>10.6.0</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>notes</key>
+            <string>Installing this application does not automatically include activation plugins.</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.pkg.FontExplorerXPro</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%dmg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>        
+    </array>
+</dict>
+</plist>

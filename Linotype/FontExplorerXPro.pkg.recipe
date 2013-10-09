@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Package FontExplorer X Pro, similar to its own `Quick Install` functionality.
+    Use an override or --key CLIENT_LICENSE=/dir/to/ClientLicense.fcl to slipstream the license.
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.pkg.FontExplorerXPro</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>FontExplorerXPro</string>
+        <key>CLIENT_LICENSE</key>
+        <string>/tmp/ClientLicense.fcl</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.download.FontExplorerXPro</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>AppDmgVersioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>dmg_path</key>
+                <string>%pathname%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/FontExplorer X Pro.app</string>
+                <key>source_path</key>
+                <string>%pathname%/FontExplorer X Pro.app</string>
+                <key>overwrite</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/FontExplorer X Pro.app/Contents/Resources/ClientLicense.fcl</string>
+                <key>source_path</key>
+                <string>%CLIENT_LICENSE%</string>
+                <key>overwrite</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>DmgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>dmg_root</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>dmg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.dmg</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>

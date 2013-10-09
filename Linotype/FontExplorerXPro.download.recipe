@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Prototype download for FontExplorer X Pro
+    Latest build information is available at http://fex.linotype.com/update/client/mac/pro/version.plist
+    It does not refer to the download location of the latest build.
+
+    Plugin sparkleshare information available at http://fex.linotype.com/update/client/mac/pro/plugins(-4)/appcast-small.xml
+    
+    Sample HTTP GET for the plugin sparkleshare feed:
+    GET /update/client/mac/pro/plugins/appcast-small.xml 
+    XPRESS_7=2.0.9
+    INCOPY_CC=3.5.1
+    PHOTOSHOP_CS5=3.5.0
+    etc
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.download.FontExplorerXPro</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>FontExplorerXPro</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://www.fontexplorerx.com/download/free-trial/Mac</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>filename</key>
+                <string>%NAME%.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
