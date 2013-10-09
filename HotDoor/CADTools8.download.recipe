@@ -7,13 +7,13 @@
     Download the specified version of HotDoor CADTools
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.CadTools</string>
+    <string>com.github.mosen.download.CADTools8</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>CadTools</string>
         <key>VERSION</key>
-        <string>7</string>
+        <string>8</string>
         <key>DOWNLOAD_PREFIX</key>
         <string>http://hotdoor.com/downloads/HD/CADtools</string>
         <key>DOWNLOAD_SUFFIX</key>
