@@ -6,6 +6,8 @@
     <string>
     Package FontExplorer X Pro, similar to its own `Quick Install` functionality.
     Use an override or --key CLIENT_LICENSE=/dir/to/ClientLicense.fcl to slipstream the license.
+
+    The default behaviour has been modified to take a client license from your local installation.
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.pkg.FontExplorerXPro</string>
@@ -14,7 +16,7 @@
         <key>NAME</key>
         <string>FontExplorerXPro</string>
         <key>CLIENT_LICENSE</key>
-        <string>/tmp/ClientLicense.fcl</string>
+        <string>/Applications/FontExplorer X Pro.app/Contents/Resources/ClientLicense.fcl</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
