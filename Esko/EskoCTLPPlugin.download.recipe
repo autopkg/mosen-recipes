@@ -4,18 +4,20 @@
 <dict>
     <key>Description</key>
     <string>
-    Download the current release of Esko Data Exchange.
+    Download the current release of Esko CT/LP Plugin for Photoshop
 
-    You must register to receive the download URL legitimately.
+    You must register to receive the download URL
+
+    https://mysoftware.esko.com/trials/download.aspx?id=21 PowerTrapper 12 Trial
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.EskoDataExchange</string>
+    <string>com.github.mosen.download.EskoCTLPPlugin</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Esko Data Exchange</string>
+        <string>EskoCTLPPlugin</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://mysoftware.esko.com/Free/Download.aspx?id=20</string>
+        <string>https://mysoftware.esko.com/Free/Download.aspx?id=18</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

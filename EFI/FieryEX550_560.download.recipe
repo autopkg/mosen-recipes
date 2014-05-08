@@ -4,18 +4,18 @@
 <dict>
     <key>Description</key>
     <string>
-    Download the current release of Esko Data Exchange.
+    Download the Xerox/EFI Fiery EX550/560 Driver
 
-    You must register to receive the download URL legitimately.
+    The URL is static until i write a scraper.
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.EskoDataExchange</string>
+    <string>com.github.mosen.download.FieryEX550_560</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Esko Data Exchange</string>
+        <string>FieryEX550_560</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://mysoftware.esko.com/Free/Download.aspx?id=20</string>
+        <string>http://download.support.xerox.com/pub/drivers/XRIP_550_Fiery/drivers/macosx106/da/XC_EX560_v2_0_R_EFIGSBpDX_FD45_v1.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -28,8 +28,6 @@
             <dict>
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
-                <key>filename</key>
-                <string>%NAME%.dmg</string>
             </dict>
         </dict>
         <dict>
