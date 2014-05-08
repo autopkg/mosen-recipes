@@ -74,6 +74,33 @@
                 </array>
             </dict>
         </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgroot</key>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                    <key>pkgname</key>
+                    <string>%NAME%</string>
+                    <key>pkgtype</key>
+                    <string>flat</string>
+                    <key>id</key>
+                    <string>com.xerox.fiery550.pkg</string>
+                    <key>version</key>
+                    <string>2.0</string>
+                    <key>scripts</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%/FieryPrinterDriverInstaller.pkg/Scripts</string>
+                    <key>chown</key>
+                    <array>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
     </array>
 </dict>
 </plist>
