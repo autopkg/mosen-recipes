@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+        Download the most recent version of Centrify DirectControl for Mac (.tgz package)
+
+        In order to do this you must have a legitimate support portal login, whether it is an evaluation or 
+        you have purchased centrify products.
+
+        Products are listed on:
+        http://www.centrify.com/support/mac-support-center.asp#download
+        div.table div.downloads > 
+
+        td.col1 version
+        td.col2 description
+        td.col3 links
+        td.col4 publish date
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.download.DirectControlMac</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>DirectControlMac</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://downloads.centrify.com/products/centrify-suite/2014/installers/centrify-suite-2014-mac10.7.tgz</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>filename</key>
+                <string>%NAME%.tgz</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
