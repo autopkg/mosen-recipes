@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+        This recipe unpacks the Centrify DirectControl package, and modifies it (per the admin guide `Installing via ARD`) to exclude interactive scripts.
+        You also have the option of running `adjoin` in the postinstall, although you may want to do this using your configuration management
+        system rather than a package.
+
+        You should somehow use adcheck to make sure the system is eligible. This may be possible as a preinstall condition?
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.pkg.CentrifyDC</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>CentrifyDC</string>
+        <key>AUTOJOIN_DOMAIN</key>
+        <string></string>
+        <key>AUTOJOIN_PASSWORD</key>
+        <string></string>
+        <key>VERSION</key>
+        <string>5.1.3</string>
+        <key>PLATFORM</key>
+        <string>mac10.7</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.download.CentrifyDC</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/CentrifyDC-5.1.3-mac10.7.dmg/CentrifyDC-5.1.3.pkg</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/CentrifyDC-5.1.3.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>flat_pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/CentrifyDC-5.1.3.pkg</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot/Resources/display-popup.sh</string>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot/Resources/open_adjoin.sh</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgroot</key>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                    <key>pkgname</key>
+                    <string>%NAME%-%VERSION%</string>
+                    <key>pkgtype</key>
+                    <string>flat</string>
+                    <key>id</key>
+                    <string>com.centrify.directcontrol.pkg</string>
+                    <key>resources</key>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot/Resources</string>
+                    <key>version</key>
+                    <string>%VERSION%</string>
+                    <key>chown</key>
+                    <array>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>

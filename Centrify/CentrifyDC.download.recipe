@@ -19,13 +19,15 @@
         td.col4 publish date
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.DirectControlMac</string>
+    <string>com.github.mosen.download.CentrifyDC</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>DirectControlMac</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://downloads.centrify.com/products/centrify-suite/2014/installers/centrify-suite-2014-mac10.7.tgz</string>
+        <string>CentrifyDC</string>
+        <key>CENTRIFY_DOWNLOAD_URL</key>
+        <string>http://www.centrify.com/support/download.asp?asset=</string>
+        <key>SUPPORT_CENTER_URL</key>
+        <string>http://www.centrify.com/support/mac-support-center.asp</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -33,13 +35,23 @@
     <array>
         <dict>
             <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SUPPORT_CENTER_URL%</string>
+                <key>re_pattern</key>
+                <string>download\.asp\?(asset=centrify-suite[^"]*)</string>
+            </dict>
+        <dict>
+            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>%CENTRIFY_DOWNLOAD_URL%%match%</string>
                 <key>filename</key>
-                <string>%NAME%.tgz</string>
+                <string>%match%</string>
             </dict>
         </dict>
         <dict>
