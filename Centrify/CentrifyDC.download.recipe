@@ -43,6 +43,7 @@
                 <key>re_pattern</key>
                 <string>download\.asp\?(asset=centrify-suite[^"]*)</string>
             </dict>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
