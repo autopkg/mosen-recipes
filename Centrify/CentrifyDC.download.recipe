@@ -9,14 +9,7 @@
         In order to do this you must have a legitimate support portal login, whether it is an evaluation or 
         you have purchased centrify products.
 
-        Products are listed on:
-        http://www.centrify.com/support/mac-support-center.asp#download
-        div.table div.downloads > 
-
-        td.col1 version
-        td.col2 description
-        td.col3 links
-        td.col4 publish date
+        This is currently broken because we need a session to get the downloads url.
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.download.CentrifyDC</string>

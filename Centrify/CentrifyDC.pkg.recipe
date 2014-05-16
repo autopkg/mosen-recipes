@@ -5,10 +5,11 @@
     <key>Description</key>
     <string>
         This recipe unpacks the Centrify DirectControl package, and modifies it (per the admin guide `Installing via ARD`) to exclude interactive scripts.
-        You also have the option of running `adjoin` in the postinstall, although you may want to do this using your configuration management
-        system rather than a package.
+        
+        While the option to automatically join a domain is available, you should probably put it into a separate postinstall_script, or client management
+        system script. This way you can alter the adjoin options without rebuilding the entire package.
 
-        You should somehow use adcheck to make sure the system is eligible. This may be possible as a preinstall condition?
+        You should run `adcheck [domain]` on each machine to make sure that it meets the agent pre-requisites.
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.pkg.CentrifyDC</string>
@@ -92,7 +93,7 @@
                     <key>pkgtype</key>
                     <string>flat</string>
                     <key>id</key>
-                    <string>com.centrify.directcontrol.pkg</string>
+                    <string>com.github.mosen.CentrifyDC.pkg</string>
                     <key>resources</key>
                     <string>%RECIPE_CACHE_DIR%/pkgroot/Resources</string>
                     <key>version</key>
