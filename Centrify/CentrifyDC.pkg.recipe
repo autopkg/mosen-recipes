@@ -6,10 +6,16 @@
     <string>
         This recipe unpacks the Centrify DirectControl package, and modifies it (per the admin guide `Installing via ARD`) to exclude interactive scripts.
         
-        While the option to automatically join a domain is available, you should probably put it into a separate postinstall_script, or client management
-        system script. This way you can alter the adjoin options without rebuilding the entire package.
+        The option to include a userscript to join a domain is not available. You should probably put it into a separate postinstall_script, or client management system script. This way you can alter the adjoin options without rebuilding the entire package. This also ensures that you keep application installation and system configuration separated.
 
-        You should run `adcheck [domain]` on each machine to make sure that it meets the agent pre-requisites.
+        You should run `adcheck [domain]` on each machine to make sure that it meets the agent pre-requisites. A script to do that is not currently included.
+
+        Variables:
+        
+        DMG_PATH: An absolute path to a downloaded copy of Centrify DirectControl for Mac from the Centrify Support Portal.
+        VERSION: The DirectControl version number, used when packaging. (The version number is not automatically determined yet).
+        NAME: Base package name, defaults to CentrifyDC
+        PLATFORM: (Unused) Will be used to identify the dmg filename, currently not used.
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.pkg.CentrifyDC</string>
@@ -17,19 +23,15 @@
     <dict>
         <key>NAME</key>
         <string>CentrifyDC</string>
-        <key>AUTOJOIN_DOMAIN</key>
-        <string></string>
-        <key>AUTOJOIN_PASSWORD</key>
-        <string></string>
         <key>VERSION</key>
         <string>5.1.3</string>
         <key>PLATFORM</key>
         <string>mac10.7</string>
+        <key>DMG_PATH</key>
+        <string>/Users/Shared/CentrifyDC-5.1.3-mac10.7.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
-    <key>ParentRecipe</key>
-    <string>com.github.mosen.download.CentrifyDC</string>
     <key>Process</key>
     <array>
         <dict>
