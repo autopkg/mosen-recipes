@@ -12,7 +12,7 @@
 
         Variables:
         
-        DMG_PATH: An absolute path to a downloaded copy of Centrify DirectControl for Mac from the Centrify Support Portal.
+        TGZ_PATH: An absolute path to a downloaded copy of Centrify DirectControl for Mac from the Centrify Support Portal.
         VERSION: The DirectControl version number, used when packaging. (The version number is not automatically determined yet).
         NAME: Base package name, defaults to CentrifyDC
         PLATFORM: (Unused) Will be used to identify the dmg filename, currently not used.
@@ -27,8 +27,8 @@
         <string>5.1.3</string>
         <key>PLATFORM</key>
         <string>mac10.7</string>
-        <key>DMG_PATH</key>
-        <string>/Users/Shared/CentrifyDC-5.1.3-mac10.7.dmg</string>
+        <key>TGZ_PATH</key>
+        <string>/Users/Shared/centrify-suite-2014-mac10.7.tgz</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -39,6 +39,8 @@
             <string>Unarchiver</string>
             <key>Arguments</key>
             <dict>
+                <key>archive_path</key>
+                <string>%TGZ_PATH%</string>
                 <key>purge_destination</key>
                 <true/>
             </dict>
@@ -49,9 +51,9 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/CentrifyDC-5.1.3-mac10.7.dmg/CentrifyDC-5.1.3.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%-%VERSION%-%PLATFORM%.dmg/%NAME%-%VERSION%.pkg</string>
                 <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/CentrifyDC-5.1.3.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%VERSION%.pkg</string>
             </dict>
         </dict>
         <dict>
@@ -60,7 +62,7 @@
             <key>Arguments</key>
             <dict>
                 <key>flat_pkg_path</key>
-                <string>%RECIPE_CACHE_DIR%/CentrifyDC-5.1.3.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%VERSION%.pkg</string>
                 <key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/pkgroot</string>
                 <key>purge_destination</key>
