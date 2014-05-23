@@ -46,4 +46,6 @@ PantoneColorManager.download
 PantoneColorManager.munki
 
 CentrifyDC.pkg
+CentrifyDC.munki
+
 

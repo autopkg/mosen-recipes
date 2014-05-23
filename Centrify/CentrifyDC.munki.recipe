@@ -39,8 +39,20 @@
             <string>%NAME%</string>
             <key>notes</key>
             <string>You should verify that adcheck passes before installing this package. You may want to use adjoin to join a domain afterwards.</string>
+            <key>RestartAction</key>
+            <string>RecommendRestart</string>
             <key>unattended_install</key>
             <true/>
+            <key>uninstall_method</key>
+            <string>uninstall_script</string>
+            <key>uninstall_script</key>
+            <string>
+                #!/bin/sh
+                # Automatically unbinds from domain and uninstalls agent.
+                /usr/share/centrifydc/bin/uninstall.sh
+            </string>
+            <key>uninstallable</key>
+            <true/>    
         </dict>
     </dict>
     <key>MinimumVersion</key>
@@ -54,6 +66,8 @@
             <dict>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/CentrifyDC.pkg</string>
             </dict>
             <key>Processor</key>
             <string>MunkiImporter</string>

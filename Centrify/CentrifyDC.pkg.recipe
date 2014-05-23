@@ -4,18 +4,33 @@
 <dict>
     <key>Description</key>
     <string>
-        This recipe unpacks the Centrify DirectControl package, and modifies it (per the admin guide `Installing via ARD`) to exclude interactive scripts.
+        This recipe unpacks the Centrify DirectControl package, and modifies it to exclude interactive scripts.
+        See "Installing remotely using Apple Remote Desktop" pg. 253 of "Admin Guide For Mac OS X.pdf".
         
-        The option to include a userscript to join a domain is not available. You should probably put it into a separate postinstall_script, or client management system script. This way you can alter the adjoin options without rebuilding the entire package. This also ensures that you keep application installation and system configuration separated.
+        I have not included the option to modify the `userscript` file inside the package to join a domain.
+        You can join a domain using your own configuration system, or using Munki's postinstall_script variable.
 
-        You should run `adcheck [domain]` on each machine to make sure that it meets the agent pre-requisites. A script to do that is not currently included.
+        To do this, you can edit the CentrifyDC pkginfo file, and add a script containing `adjoin` for example:
+            
+                #!/bin/sh
+                adjoin --password *adminpassword* *domain*
+
+        See the admin guide, included with the installer for more information on the parameters to `adjoin`.
+        You should run `adcheck [domain]` on each machine to make sure that it meets the agent pre-requisites. You may need to write your own wrapper for
+        this, as the `adcheck` command returns different codes, that you may want to interpret as success.
 
         Variables:
         
-        TGZ_PATH: An absolute path to a downloaded copy of Centrify DirectControl for Mac from the Centrify Support Portal.
-        VERSION: The DirectControl version number, used when packaging. (The version number is not automatically determined yet).
-        NAME: Base package name, defaults to CentrifyDC
+        TGZ_PATH: An absolute path to a downloaded copy of Centrify DirectControl for Mac from the Centrify Support Portal (tgz version).
+        VERSION:  The DirectControl version number, used when packaging. (The version number is not automatically determined yet).
+        NAME:     Base package name, defaults to CentrifyDC
         PLATFORM: (Unused) Will be used to identify the dmg filename, currently not used.
+
+        Caveats:
+
+        Version is not determined (best location pkgroot/centrifydc.pkg/PackageInfo, pkg-info bundle id=com.centrify.CentrifyDC CFBundleShortVersionString)
+        adcheck isnt included in the install condition?
+        Detect minimum OS from original flat package, this is scripted so unsure about methodology.
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.pkg.CentrifyDC</string>
@@ -83,29 +98,13 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>PkgCreator</string>
+            <string>FlatPkgPacker</string>
             <key>Arguments</key>
             <dict>
-                <key>pkg_request</key>
-                <dict>
-                    <key>pkgroot</key>
-                    <string>%RECIPE_CACHE_DIR%/pkgroot</string>
-                    <key>pkgdir</key>
-                    <string>%RECIPE_CACHE_DIR%</string>
-                    <key>pkgname</key>
-                    <string>%NAME%-%VERSION%</string>
-                    <key>pkgtype</key>
-                    <string>flat</string>
-                    <key>id</key>
-                    <string>com.github.mosen.CentrifyDC.pkg</string>
-                    <key>resources</key>
-                    <string>%RECIPE_CACHE_DIR%/pkgroot/Resources</string>
-                    <key>version</key>
-                    <string>%VERSION%</string>
-                    <key>chown</key>
-                    <array>
-                    </array>
-                </dict>
+                <key>destination_pkg</key>
+                <string>%RECIPE_CACHE_DIR%/CentrifyDC.pkg</string>
+                <key>source_flatpkg_dir</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot</string>
             </dict>
         </dict>
     </array>
