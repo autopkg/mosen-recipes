@@ -45,7 +45,7 @@
                 <key>skip_payload</key>
                 <false/>
                 <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/FlatPkgContents</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot</string>
                 <key>purge_destination</key>
                 <true/>
             </dict>
@@ -71,32 +71,18 @@ echo $?
 echo "postinstall script end******"
 </string>
                 <key>file_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/FlatPkgContents/i1ProfilerTrayComponent.pkg/Scripts/postinstall</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot/i1ProfilerTrayComponent.pkg/Scripts/postinstall</string>
             </dict>
         </dict>
         <dict>
             <key>Processor</key>
-            <string>PkgCreator</string>
+            <string>FlatPkgPacker</string>
             <key>Arguments</key>
             <dict>
-                <key>pkg_request</key>
-                <dict>
-                    <key>pkgroot</key>
-                    <string>%RECIPE_CACHE_DIR%/%NAME%/FlatPkgContents</string>
-                    <key>pkgdir</key>
-                    <string>%RECIPE_CACHE_DIR%</string>
-                    <key>id</key>
-                    <string>com.xrite.i1profiler.pkg</string>
-                    <key>pkgname</key>
-                    <string>%NAME%</string>
-                    <key>resources</key>
-                    <string>%RECIPE_CACHE_DIR%/%NAME%/FlatPkgContents/Resources</string>
-                    <key>version</key>
-                    <string>1.5.0.14211</string>
-                    <key>chown</key>
-                    <array>
-                    </array>
-                </dict>
+                <key>destination_pkg</key>
+                <string>%RECIPE_CACHE_DIR%/i1Profiler Silent.pkg</string>
+                <key>source_flatpkg_dir</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot</string>
             </dict>
         </dict>
     </array>

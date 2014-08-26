@@ -7,8 +7,6 @@
     Download the current release of Esko CT/LP Plugin for Photoshop
 
     You must register to receive the download URL
-
-    https://mysoftware.esko.com/trials/download.aspx?id=21 PowerTrapper 12 Trial
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.download.EskoCTLPPlugin</string>
