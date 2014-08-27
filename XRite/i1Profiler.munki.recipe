@@ -4,7 +4,21 @@
 <dict>
     <key>Description</key>
     <string>
-    Import Modified i1Profiler Package into Munki
+    Import X-Rite i1Profiler into your munki repository (Using the unattended package created by i1Profiler.pkg).
+
+    OVERRIDES
+        
+        NAME - The name of the item in your munki repository, defaults to `i1Profiler`.
+
+        MUNKI_REPO_SUBDIR - The subdirectory of your munki repository where this package will be imported.
+        defaults to `apps/XRite`.
+
+        PKG_NAME - The filename of the flat package created by i1Profiler.pkg. Because FlatPkgPacker doesn't have outputs,
+        you have to override this on both recipes if you don't want the package name to be `i1Profiler Silent.pkg`
+
+        pkginfo - The default template pkginfo. The hasp installer does not always run (com.xrite.hasp.installer.pkg), therefore 
+        by default it must be marked as optional to prevent munki from showing the item as not installed.
+
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.munki.i1Profiler</string>
@@ -14,6 +28,8 @@
         <string>i1Profiler</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/XRite</string>
+        <key>PKG_NAME</key>
+        <string>i1Profiler Silent.pkg</string>
         <key>pkginfo</key>
         <dict>
             <key>blocking_applications</key>
@@ -30,11 +46,22 @@
             <key>display_name</key>
             <string>i1Profiler</string>
             <key>minimum_os_version</key>
-            <string>10.5.0</string>
+            <string>10.6.0</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
+            <key>receipts</key>
+            <array>
+                <dict>
+                    <key>optional</key>
+                    <true/>
+                    <key>packageid</key>
+                    <string>com.xrite.hasp.installer.pkg</string>
+                    <key>version</key>
+                    <string>1.0</string>
+                </dict>
+            </array>
         </dict>
     </dict>
     <key>MinimumVersion</key>
@@ -47,7 +74,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%RECIPE_CACHE_DIR%/i1Profiler Silent.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/%PKG_NAME%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
