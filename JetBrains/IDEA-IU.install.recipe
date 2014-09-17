@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest release of IntelliJ IDEA Ultimate Edition and installs it.</string>
+    <key>Identifier</key>
+    <string>com.github.mosen.install.IDEA-IU</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>IDEA</string>
+        <key>PLATFORM</key>
+        <string>mac</string>
+        <key>PRODUCT_CODE</key>
+        <string>IU</string>
+        <key>MAJOR_VERSION</key>
+        <string>13</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.download.IDEA-IU</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>InstallFromDMG</string>
+            <key>Arguments</key>
+            <dict>
+                <key>dmg_path</key>
+                <string>%pathname%</string>
+                <key>items_to_copy</key>
+                <array>
+                    <dict>
+                        <key>source_item</key>
+                        <string>IntelliJ IDEA %MAJOR_VERSION%.app</string>
+                        <key>destination_path</key>
+                        <string>/Applications/</string>
+                    </dict>
+                </array>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
