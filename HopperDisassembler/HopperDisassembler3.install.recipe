@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest version of Hopper Disassembler 3 and installs it into the Applications directory</string>
+    <key>Identifier</key>
+    <string>com.github.mosen.install.HopperDisassembler3</string>
+    <key>Input</key>
+    <dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.timsutton.download.HopperDisassembler3</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>archive_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+              <key>destination_path</key>
+              <string>/Applications/Hopper Disassembler v3.app</string>
+              <key>source_path</key>
+              <string>%RECIPE_CACHE_DIR%/%NAME%/Hopper Disassembler v3.app</string>
+              <key>overwrite</key>
+              <true/>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
