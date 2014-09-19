@@ -9,13 +9,13 @@
     You must register to receive the download URL
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.EskoCTLPPlugin</string>
+    <string>com.github.mosen.download.EskoCTLP14</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>EskoCTLPPlugin</string>
+        <string>CT-LP</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://mysoftware.esko.com/Free/Download.aspx?id=18</string>
+        <string>https://mysoftware.esko.com/Free/Download.aspx?id=16</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
