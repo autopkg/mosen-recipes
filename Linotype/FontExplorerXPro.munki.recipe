@@ -4,7 +4,7 @@
 <dict>
     <key>Description</key>
     <string>
-    Import FontExplorer X Pro into Munki.
+    Import FontExplorer X Pro into Munki. Includes a postinstall script which attempts to upgrade plugins for all applications.
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.munki.FontExplorerXPro</string>
@@ -32,8 +32,12 @@
             <string>10.6.0</string>
             <key>name</key>
             <string>%NAME%</string>
-            <key>notes</key>
-            <string>Installing this application does not automatically include activation plugins.</string>
+            <key>postinstall_script</key>
+            <string>#!/bin/sh
+/Applications/FontExplorer X Pro.app/Contents/PlugIns/PlugIns.bundle/Contents/Resources/plugin-installer --install
+
+exit 0
+            </string>
             <key>unattended_install</key>
             <true/>
         </dict>

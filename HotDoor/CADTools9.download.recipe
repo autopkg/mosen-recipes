@@ -4,18 +4,20 @@
 <dict>
     <key>Description</key>
     <string>
-    Download the current release of Esko CT/LP Plugin for Photoshop
-
-    You must register to receive the download URL
+    Download the specified version of HotDoor CADTools
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.EskoCTLPPlugin</string>
+    <string>com.github.mosen.download.CADTools9</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>EskoCTLPPlugin</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://mysoftware.esko.com/Free/Download.aspx?id=18</string>
+        <string>CadTools</string>
+        <key>VERSION</key>
+        <string>9</string>
+        <key>DOWNLOAD_PREFIX</key>
+        <string>http://hotdoor.com/downloads/HD/CADtools</string>
+        <key>DOWNLOAD_SUFFIX</key>
+        <string>.dmg.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -27,9 +29,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
-                <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>%DOWNLOAD_PREFIX%%VERSION%%DOWNLOAD_SUFFIX%</string>
             </dict>
         </dict>
         <dict>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Copy CADTools 9 plugins into a package root structure, then create a package.
+    There is no conditional checking for which versions of Illustrator have been installed.
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.pkg.CADTools9</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>CADTools9</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.download.CADTools9</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>archive_path</key>
+                <string>%pathname%</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgRootCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkgroot</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot</string>
+                <key>pkgdirs</key>
+                <dict>
+                    <key>Applications</key>
+                    <string>755</string>
+                    <key>Applications/Adobe Illustrator CS5</key>
+                    <string>775</string>
+                    <key>Applications/Adobe Illustrator CS5/Plug-ins.localized</key>
+                    <string>775</string>
+                    <key>Applications/Adobe Illustrator CS5/Plug-ins.localized/Tools.localized</key>
+                    <string>775</string>
+
+                    <key>Applications</key>
+                    <string>755</string>
+                    <key>Applications/Adobe Illustrator CS6</key>
+                    <string>775</string>
+                    <key>Applications/Adobe Illustrator CS6/Plug-ins.localized</key>
+                    <string>775</string>
+                    <key>Applications/Adobe Illustrator CS6/Plug-ins.localized/Tools.localized</key>
+                    <string>775</string>
+
+                    <key>Applications</key>
+                    <string>755</string>
+                    <key>Applications/Adobe Illustrator CC</key>
+                    <string>775</string>
+                    <key>Applications/Adobe Illustrator CC/Plug-ins.localized</key>
+                    <string>775</string>
+                    <key>Applications/Adobe Illustrator CC/Plug-ins.localized/Tools.localized</key>
+                    <string>775</string>
+
+                    <key>Applications</key>
+                    <string>755</string>
+                    <key>Applications/Adobe Illustrator CC 2014</key>
+                    <string>775</string>
+                    <key>Applications/Adobe Illustrator CC 2014/Plug-ins.localized</key>
+                    <string>775</string>
+                    <key>Applications/Adobe Illustrator CC 2014/Plug-ins.localized/Tools.localized</key>
+                    <string>775</string>
+
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot/Applications/Adobe Illustrator CS5/Plug-ins.localized/Tools.localized/CADtools.aip</string>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/CADtools 9.dmg/For Ai CS5/CADtools.aip</string>
+                <key>overwrite</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot/Applications/Adobe Illustrator CS6/Plug-ins.localized/Tools.localized/CADtools.aip</string>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/CADtools 9.dmg/For Ai CS6/CADtools.aip</string>
+                <key>overwrite</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot/Applications/Adobe Illustrator CC/Plug-ins.localized/Tools.localized/CADtools.aip</string>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/CADtools 9.dmg/For Ai CC 2013/CADtools.aip</string>
+                <key>overwrite</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot/Applications/Adobe Illustrator CC 2014/Plug-ins.localized/Tools.localized/CADtools.aip</string>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/CADtools 9.dmg/For Ai CC 2014/CADtools.aip</string>
+                <key>overwrite</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot/Applications/Adobe Illustrator CC/Plug-ins.localized/Tools.localized/CADtools.aip/Contents/Info.plist</string>
+                <key>plist_version_key</key>
+                <string>CFBundleVersion</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgroot</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot</string>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                    <key>id</key>
+                    <string>com.hotdoor.CADTools9.pkg</string>
+                    <key>pkgname</key>
+                    <string>%NAME%</string>
+                    <key>version</key>
+                    <string>%version%</string>
+                    <key>chown</key>
+                    <array>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
