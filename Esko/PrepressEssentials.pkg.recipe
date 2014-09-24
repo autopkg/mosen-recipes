@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Modify pre/post scripts to remove reference to AppleScript alert dialogs and use exit status only.
+    This will make package installation compatible with a silent workflow.
+
+    You must register to receive the download URL legitimately.
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.pkg.EskoPrepressEssentials</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>EskoPrepressEssentials</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.download.EskoPrepressEssentials</string>
+    <key>Process</key>
+    <array>
+       <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pathname%/Prepress Essentials.pkg</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/Prepress Essentials.pkg</string>
+                <key>overwrite</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>flat_pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/Prepress Essentials.pkg</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Color Engine.pkg/Scripts/ColorEngine-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+    echo "Running: ColorEngine-postinstall"
+    "/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Color Engine"
+    ./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Color Engine/ColorEngine.bundle/Contents/Resources"
+    RESULT_AI16="$?"
+    echo "RESULT_AI16 = $RESULT_AI16"
+    if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+    if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+    ./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Color Engine/ColorEngine.bundle/Contents/Resources"
+    RESULT_AI17="$?"
+    echo "RESULT_AI17 = $RESULT_AI17"
+    if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+    if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+    if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+      echo "Illustrator is not available."
+      exit 1
+    fi
+
+    exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Channel Mapping.pkg/Scripts/ChannelMapping-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: ChannelMapping-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Channel Mapping"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Channel Mapping/ChannelMapping.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Channel Mapping/ChannelMapping.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/boostX.pkg/Scripts/boostX-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: boostX-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/boostX"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/boostX/boostX.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/boostX/boostX.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Dynamic Barcodes.pkg/Scripts/DynamicBarcodes-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: DynamicBarcodes-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Dynamic Barcodes"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Dynamic Barcodes/DynamicBarcodes.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Dynamic Barcodes/DynamicBarcodes.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Esko Data Exchange.pkg/Scripts/EskoDataExchange-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: EskoDataExchange-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Esko Data Exchange"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Esko Data Exchange/EskoDataExchange.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Esko Data Exchange/EskoDataExchange.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Image Extractor.pkg/Scripts/ImageExtractor-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: ImageExtractor-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Image Extractor"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Image Extractor/ImageExtractor.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Image Extractor/ImageExtractor.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Instant Trapper.pkg/Scripts/InstantTrapper-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: InstantTrapper-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Instant Trapper"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Instant Trapper/InstantTrapper.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Instant Trapper/InstantTrapper.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Licensing PE Trial.pkg/Scripts/Licensing-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: Licensing-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Licensing"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Licensing/Licensing.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Licensing/Licensing.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+echo "Patching semaphores"
+./MACLICENSINGPATCH
+echo $?
+echo "Installing Subscription service"
+sudo "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Licensing/Licensing.bundle/Contents/Resources/SubscriptionService.app/Contents/MacOS/SubscriptionService" -install AIPlugins
+RESULT_SS="$?"
+if [ $RESULT_SS != 0 ]; then
+  echo "Failed: RESULT_SS=$RESULT_SS"
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/PDF Import.pkg/Scripts/PDFImport-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: PDFImport-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/PDF Import"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/PDF Import/PDFImport.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/PDF Import/PDFImport.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Preflight.pkg/Scripts/Preflight-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: Preflight-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Preflight"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Preflight/Preflight.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Preflight/Preflight.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Screening.pkg/Scripts/Screening-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: Screening-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Screening"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Screening/Screening.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Screening/Screening.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Viewer.pkg/Scripts/Viewer-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: Viewer-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Viewer"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Viewer/Viewer.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then ./HostIsRunningError.app/Contents/MacOS/applet; exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Viewer/Viewer.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then ./HostIsRunningError.app/Contents/MacOS/applet; exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/White Underprint.pkg/Scripts/WhiteUnderprint-postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/bash
+echo "Running: WhiteUnderprint-postinstall"
+"/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/White Underprint"
+./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/White Underprint/WhiteUnderprint.bundle/Contents/Resources"
+RESULT_AI16="$?"
+echo "RESULT_AI16 = $RESULT_AI16"
+if [ $RESULT_AI16 = 1 ] || [ $RESULT_AI16 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI16 = 4 ]; then exit 1; fi
+
+./DTPScript -debug1 -c "$TMPDIR" -AI17 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/White Underprint/WhiteUnderprint.bundle/Contents/Resources"
+RESULT_AI17="$?"
+echo "RESULT_AI17 = $RESULT_AI17"
+if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI17 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+  echo "Illustrator is not available."
+  exit 1
+fi
+
+exit 0
+                </string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgPacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_pkg</key>
+                <string>%RECIPE_CACHE_DIR%/Prepress Essentials Silent.pkg</string>
+                <key>source_flatpkg_dir</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>

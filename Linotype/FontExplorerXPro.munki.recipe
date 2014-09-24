@@ -38,6 +38,12 @@
 
 exit 0
             </string>
+            <key>preuninstall_script</key>
+            <string>#!/bin/sh
+/Applications/FontExplorer X Pro.app/Contents/PlugIns/PlugIns.bundle/Contents/Resources/plugin-installer --uninstall
+
+exit 0
+            </string>
             <key>unattended_install</key>
             <true/>
         </dict>
@@ -45,14 +51,14 @@ exit 0
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.mosen.pkg.FontExplorerXPro</string>
+    <string>com.github.mosen.download.FontExplorerXPro</string>
     <key>Process</key>
     <array>
         <dict>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%dmg_path%</string>
+                <string>%pathname%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
