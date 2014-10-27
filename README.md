@@ -1,4 +1,6 @@
 autopkg-recipes
 ===============
 
-Recipes for osx application update management
+## The repo has moved ##
+The new location is at https://github.com/autopkg/mosen-recipes
+
