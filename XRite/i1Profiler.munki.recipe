@@ -51,17 +51,6 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
-            <key>receipts</key>
-            <array>
-                <dict>
-                    <key>optional</key>
-                    <true/>
-                    <key>packageid</key>
-                    <string>com.xrite.hasp.installer.pkg</string>
-                    <key>version</key>
-                    <string>1.0</string>
-                </dict>
-            </array>
         </dict>
     </dict>
     <key>MinimumVersion</key>
@@ -70,6 +59,75 @@
     <string>com.github.mosen.pkg.i1Profiler</string>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>purge_destination</key>
+                <true/>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%_installs/Applications/i1Profiler</string>
+                <key>archive_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot/i1ProfilerComponent.pkg/Payload</string>
+                <key>archive_format</key>
+                <string>tar</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>purge_destination</key>
+                <false/>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%_installs/Applications/i1Profiler</string>
+                <key>archive_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkgroot/i1ProfilerTrayComponent.pkg/Payload</string>
+                <key>archive_format</key>
+                <string>tar</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiInstallsItemsCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>faux_root</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%_installs</string>
+                <key>installs_item_paths</key>
+                <array>
+                    <string>/Applications/i1Profiler/i1Profiler.app</string>
+                    <string>/Applications/i1Profiler/i1ProfilerTray.app</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%_installs/Applications/i1Profiler/i1Profiler.app/Contents/Info.plist</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+            <key>Arguments</key>
+            <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                    <key>version</key>
+                    <string>%version%</string>
+                </dict>
+            </dict>
+        </dict>
         <dict>
             <key>Arguments</key>
             <dict>
@@ -80,7 +138,7 @@
             </dict>
             <key>Processor</key>
             <string>MunkiImporter</string>
-        </dict>        
+        </dict>
     </array>
 </dict>
 </plist>
