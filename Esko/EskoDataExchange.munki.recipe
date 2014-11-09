@@ -10,6 +10,7 @@
     You must register to receive the download URL legitimately.
 
     Illustrator CS5 was removed from support in v12
+    v14 - Removed RecommendedRestart, because Licensing component is no longer installed (it required a restart).
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.munki.EskoDataExchange</string>
@@ -41,8 +42,6 @@
             <string>%NAME%</string>
             <key>notes</key>
             <string>Although this package requires illustrator, it does not check for the existence of Illustrator.</string>
-            <key>RestartAction</key>
-            <string>RecommendRestart</string>
             <key>unattended_install</key>
             <true/>
         </dict>
