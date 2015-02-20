@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest version of Seafile Client and copies it into the Applications directory</string>
+    <key>Identifier</key>
+    <string>com.github.mosen.install.SeafileClient</string>
+    <key>Input</key>
+    <dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.download.SeafileClient</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+              <key>destination_path</key>
+              <string>/Applications/Seafile Client.app</string>
+              <key>source_path</key>
+              <string>%pathname%/Seafile Client.app</string>
+              <key>overwrite</key>
+              <true/>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
