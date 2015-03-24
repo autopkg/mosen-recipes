@@ -13,7 +13,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>FontExplorerXPro</string>
+        <string>FontExplorerXProPlugins</string>
         <key>FEED_URL</key>
         <string>http://fex.linotype.com/update/client/mac/pro/plugins-4/appcast-small.xml</string>
     </dict>
