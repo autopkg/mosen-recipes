@@ -34,13 +34,13 @@
             <string>%NAME%</string>
             <key>postinstall_script</key>
             <string>#!/bin/sh
-/Applications/FontExplorer X Pro.app/Contents/PlugIns/PlugIns.bundle/Contents/Resources/plugin-installer --install
+/Applications/FontExplorer\ X\ Pro.app/Contents/PlugIns/PlugIns.bundle/Contents/Resources/plugin-installer --install
 
 exit 0
             </string>
             <key>preuninstall_script</key>
             <string>#!/bin/sh
-/Applications/FontExplorer X Pro.app/Contents/PlugIns/PlugIns.bundle/Contents/Resources/plugin-installer --uninstall
+/Applications/FontExplorer\ X\ Pro.app/Contents/PlugIns/PlugIns.bundle/Contents/Resources/plugin-installer --uninstall
 
 exit 0
             </string>
