@@ -6,14 +6,16 @@
         <string>Downloads latest version of Seafile Client and imports into a Munki repo.</string>
 
         <key>Identifier</key>
-        <string>com.github.autopkg.munki.SeafileClient</string>
+        <string>com.github.mosen.munki.SeafileClient</string>
         
         <key>Input</key>
         <dict>
             <key>NAME</key>
             <string>SeafileClient</string>
+
             <key>MUNKI_REPO_SUBDIR</key>
             <string>apps</string>
+
             <key>pkginfo</key>
             <dict>
                 <key>catalogs</key>
@@ -28,10 +30,10 @@
                 <string>Seafile</string>
 
                 <key>name</key>
-                <string>%NAME%</string>
+                <string>Seafile</string>
                 
                 <key>unattended_install</key>
-                <true/>
+                <false/>
             </dict>
         </dict>
         
@@ -39,14 +41,10 @@
         <string>0.2.0</string>
         
         <key>ParentRecipe</key>
-        <string>com.github.autopkg.download.SeafileClient</string>
+        <string>com.github.mosen.download.SeafileClient</string>
         
         <key>Process</key>
         <array>
-            <dict>
-                <key>Processor</key>
-                <string>MunkiPkginfoMerger</string>
-            </dict>
             <dict>
                 <key>Arguments</key>
                 <dict>
