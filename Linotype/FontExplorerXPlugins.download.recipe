@@ -9,7 +9,7 @@
     Only use this if you want to alter the way that plugins are installed.
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.FontExplorerXPro</string>
+    <string>com.github.mosen.download.FontExplorerXProPlugins</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
