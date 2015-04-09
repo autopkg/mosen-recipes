@@ -61,6 +61,7 @@
                 <string>%RECIPE_CACHE_DIR%/pkgroot/Esko Data Exchange.pkg/Scripts/EskoDataExchange-postinstall</string>
                 <key>file_content</key>
                 <string>#!/bin/bash
+#!/bin/bash
 echo "Running: EskoDataExchange-postinstall"
 "/System/Library/CoreServices/FixupResourceForks" -q "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Esko Data Exchange"
 ./DTPScript -debug1 -c "$TMPDIR" -AI16 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Esko Data Exchange/EskoDataExchange.bundle/Contents/Resources"
@@ -75,7 +76,13 @@ echo "RESULT_AI17 = $RESULT_AI17"
 if [ $RESULT_AI17 = 1 ] || [ $RESULT_AI17 = 3 ] ; then exit 1; fi
 if [ $RESULT_AI17 = 4 ]; then exit 1; fi
 
-if [ $[RESULT_AI16 * RESULT_AI17] != 0 ]; then
+./DTPScript -debug1 -c "$TMPDIR" -AI18 "/Library/Application Support/Esko-Graphics/DeskPack Plug-In Repository/Esko Data Exchange/EskoDataExchange.bundle/Contents/Resources"
+RESULT_AI18="$?"
+echo "RESULT_AI18 = $RESULT_AI18"
+if [ $RESULT_AI18 = 1 ] || [ $RESULT_AI18 = 3 ] ; then exit 1; fi
+if [ $RESULT_AI18 = 4 ]; then exit 1; fi
+
+if [ $[RESULT_AI16 * RESULT_AI17 * RESULT_AI18] != 0 ]; then
   echo "Illustrator is not available."
   exit 1
 fi
