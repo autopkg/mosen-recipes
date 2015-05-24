@@ -23,7 +23,7 @@
                 <key>url</key>
                 <string>https://bitbucket.org/haiwen/seafile/downloads/</string>
                 <key>re_pattern</key>
-                <string>"/(haiwen/seafile/downloads/seafile-client-.*\.dmg)"</string>
+                <string>"/(haiwen/seafile/downloads/seafile-client-.*\d\.dmg)"</string>
                 <key>result_output_var_name</key>
                 <string>url</string>
             </dict>
