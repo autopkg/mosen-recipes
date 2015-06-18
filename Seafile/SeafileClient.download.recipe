@@ -21,9 +21,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://bitbucket.org/haiwen/seafile/downloads/</string>
+                <string>http://www.seafile.com/en/download/</string>
                 <key>re_pattern</key>
-                <string>"/(haiwen/seafile/downloads/seafile-client-.*\d\.dmg)"</string>
+                <string>(http[s]+://.*/seafile-client-.*\d\.dmg)</string>
                 <key>result_output_var_name</key>
                 <string>url</string>
             </dict>
@@ -33,8 +33,6 @@
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>https://bitbucket.org/%url%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
