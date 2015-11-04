@@ -103,7 +103,7 @@
                     <key>version</key>
                     <string>2.0</string>
                     <key>scripts</key>
-                    <string>%RECIPE_CACHE_DIR%/%NAME%/FieryPrinterDriverInstaller.pkg/Scripts</string>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%/Unpacked/FieryPrinterDriverInstaller.pkg/Scripts</string>
                     <key>chown</key>
                     <array>
                     </array>
