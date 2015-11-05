@@ -64,17 +64,7 @@
                 <string>%RECIPE_CACHE_DIR%/pkgroot/tmp/Fiery Printer Driver Installer.app</string>
             </dict>
         </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-                <array>
-                    <string>%RECIPE_CACHE_DIR%/pkgroot/tmp/Fiery Printer Driver Installer.app/Contents/Resources/User Software/OSX/Printer Driver/Installer Wizard.app</string>
-                </array>
-            </dict>
-        </dict>
+     
         <dict>
             <key>Processor</key>
             <string>PkgCreator</string>
