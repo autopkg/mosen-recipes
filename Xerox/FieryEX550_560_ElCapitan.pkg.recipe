@@ -13,34 +13,26 @@
     and then re-pack the installer with the original postinstall scripts.
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.pkg.FieryEX550_560_Yosemite</string>
+    <string>com.github.mosen.pkg.FieryEX550_560_ElCapitan</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>FieryEX550_560_Yosemite</string>
+        <string>FieryEX550_560_ElCapitan</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.mosen.download.FieryEX550_560_Yosemite</string>
+    <string>com.github.mosen.download.FieryEX550_560_ElCapitan</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Processor</key>
-            <string>Unarchiver</string>
-            <key>Arguments</key>
-            <dict>
-                <key>purge_destination</key>
-                <true/>
-            </dict>
-        </dict>
+    
         <dict>
             <key>Processor</key>
             <string>FlatPkgUnpacker</string>
             <key>Arguments</key>
             <dict>
                 <key>flat_pkg_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/XC_EX560_v2_0_R_EFIGSBpDX_FD47_v1.dmg/Fiery Printer Driver.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/downloads/XC_EX560_v1_1_RX_FD50_v1.dmg/Fiery Printer Driver.pkg</string>
                 <key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/%NAME%/Unpacked</string>
                 <key>purge_destination</key>
@@ -72,17 +64,7 @@
                 <string>%RECIPE_CACHE_DIR%/pkgroot/tmp/Fiery Printer Driver Installer.app</string>
             </dict>
         </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-                <array>
-                    <string>%RECIPE_CACHE_DIR%/pkgroot/tmp/Fiery Printer Driver Installer.app/Contents/Resources/User Software/OSX/Printer Driver/Installer Wizard.app</string>
-                </array>
-            </dict>
-        </dict>
+     
         <dict>
             <key>Processor</key>
             <string>PkgCreator</string>
@@ -99,7 +81,7 @@
                     <key>pkgtype</key>
                     <string>flat</string>
                     <key>id</key>
-                    <string>com.xerox.fiery550.yosemite.pkg</string>
+                    <string>com.xerox.fiery550.elcapitan.pkg</string>
                     <key>version</key>
                     <string>2.0</string>
                     <key>scripts</key>
