@@ -25,17 +25,14 @@
     <string>com.github.mosen.download.FieryEX550_560_ElCapitan</string>
     <key>Process</key>
     <array>
-    	<dict>
-    		<key>Processor</key>
-    		<string>DmgMounter</string>
-        </dict>
+    
         <dict>
             <key>Processor</key>
             <string>FlatPkgUnpacker</string>
             <key>Arguments</key>
             <dict>
                 <key>flat_pkg_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/XC_EX560_v1_1_RX_FD50_v1.dmg/Fiery Printer Driver.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/downloads/XC_EX560_v1_1_RX_FD50_v1.dmg/Fiery Printer Driver.pkg</string>
                 <key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/%NAME%/Unpacked</string>
                 <key>purge_destination</key>
