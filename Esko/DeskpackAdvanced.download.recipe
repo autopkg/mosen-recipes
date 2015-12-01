@@ -4,18 +4,18 @@
 <dict>
     <key>Description</key>
     <string>
-    Download the current release of Esko PrePress Essentials (Trial)
+    Download the current release of Esko Deskpack Advanced (Trial)
 
     You must register to receive the download URL
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.EskoPrepressEssentials</string>
+    <string>com.github.mosen.download.EskoDeskpackAdvanced</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>EskoPrepressEssentials</string>
+        <string>EskoDeskpackEssentials</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://mysoftware.esko.com/trials/download.aspx?id=62</string>
+        <string>https://mysoftware.esko.com/trials/download.aspx?id=60</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

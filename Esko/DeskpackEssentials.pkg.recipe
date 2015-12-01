@@ -10,16 +10,16 @@
     You must register to receive the download URL legitimately.
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.pkg.EskoPrepressEssentials</string>
+    <string>com.github.mosen.pkg.EskoDeskpackEssentials</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>EskoPrepressEssentials</string>
+        <string>EskoDeskpackEssentials</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.mosen.download.EskoPrepressEssentials</string>
+    <string>com.github.mosen.download.EskoDeskpackEssentials</string>
     <key>Process</key>
     <array>
        <dict>
@@ -28,9 +28,9 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%pathname%/Prepress Essentials.pkg</string>
+                <string>%pathname%/DeskPack Essentials.pkg</string>
                 <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/Prepress Essentials.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/DeskPack Essentials.pkg</string>
                 <key>overwrite</key>
                 <true/>
             </dict>
@@ -41,7 +41,7 @@
             <key>Arguments</key>
             <dict>
                 <key>flat_pkg_path</key>
-                <string>%RECIPE_CACHE_DIR%/Prepress Essentials.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/DeskPack Essentials.pkg</string>
                 <key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/pkgroot</string>
                 <key>purge_destination</key>
@@ -480,7 +480,7 @@ exit 0
             <key>Arguments</key>
             <dict>
                 <key>destination_pkg</key>
-                <string>%RECIPE_CACHE_DIR%/Prepress Essentials Silent.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/DeskPack Essentials Silent.pkg</string>
                 <key>source_flatpkg_dir</key>
                 <string>%RECIPE_CACHE_DIR%/pkgroot</string>
             </dict>
