@@ -34,7 +34,7 @@
                 <key>flat_pkg_path</key>
                 <string>%RECIPE_CACHE_DIR%/downloads/XC_EX560_v1_1_RX_FD50_v1.dmg/Fiery Printer Driver.pkg</string>
                 <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/Unpacked</string>
+                <string>%RECIPE_CACHE_DIR%/Unpacked</string>
                 <key>purge_destination</key>
                 <true/>
             </dict>
@@ -59,7 +59,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pkg_payload_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/Unpacked/FieryPrinterDriverInstaller.pkg/Payload</string>
+                <string>%RECIPE_CACHE_DIR%/Unpacked/FieryPrinterDriverInstaller.pkg/Payload</string>
                 <key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/pkgroot/tmp/Fiery Printer Driver Installer.app</string>
             </dict>
@@ -85,7 +85,7 @@
                     <key>version</key>
                     <string>2.0</string>
                     <key>scripts</key>
-                    <string>%RECIPE_CACHE_DIR%/%NAME%/Unpacked/FieryPrinterDriverInstaller.pkg/Scripts</string>
+                    <string>%RECIPE_CACHE_DIR%/Unpacked/FieryPrinterDriverInstaller.pkg/Scripts</string>
                     <key>chown</key>
                     <array>
                     </array>
