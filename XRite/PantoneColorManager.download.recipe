@@ -11,6 +11,9 @@
 
     If you don't have X-Rite Device Services installed, this package will also install that to support calibration
     via spectrophotometer.
+
+    2015-12-22: Added Static URL to override Sparkle URL because pantone have let the certificate expire on pcm.pantone.com
+
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.download.PantoneColorManager</string>
@@ -25,18 +28,11 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>SparkleUpdateInfoProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>appcast_url</key>
-                <string>https://pcm.pantone.com/pantonecolormanager/mac/feed/pcm_feed.xml</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>url</key>
+                <string>http://www.pantone.com/downloads/support/macfiles/PANTONE_COLOR_MANAGER_MAC.zip</string>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
             </dict>
