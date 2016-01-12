@@ -12,8 +12,6 @@
         <string>IDEA</string>
         <key>PLATFORM</key>
         <string>mac</string>
-        <key>PRODUCT_CODE</key>
-        <string>IU</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -24,10 +22,8 @@
             <string>JetbrainsURLProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>product</key>
-                <string>IntelliJ IDEA</string>
                 <key>product_code</key>
-                <string>IU</string>
+                <string>IIU</string>
             </dict>
         </dict>
         <dict>

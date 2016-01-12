@@ -22,10 +22,8 @@
             <string>JetbrainsURLProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>product</key>
-                <string>PyCharm</string>
                 <key>product_code</key>
-                <string>prof</string>
+                <string>PCP</string>
             </dict>
         </dict>
         <dict>

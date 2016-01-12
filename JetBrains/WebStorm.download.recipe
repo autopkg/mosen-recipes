@@ -22,8 +22,8 @@
             <string>JetbrainsURLProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>product</key>
-                <string>WebStorm</string>
+                <key>product_code</key>
+                <string>WS</string>
             </dict>
         </dict>
         <dict>

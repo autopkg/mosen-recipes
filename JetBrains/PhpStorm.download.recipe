@@ -22,8 +22,8 @@
             <string>JetbrainsURLProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>product</key>
-                <string>PhpStorm</string>
+                <key>product_code</key>
+                <string>PS</string>
             </dict>
         </dict>
         <dict>
