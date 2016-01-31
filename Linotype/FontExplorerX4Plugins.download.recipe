@@ -15,7 +15,7 @@
         <key>NAME</key>
         <string>FontExplorerXProPlugins</string>
         <key>FEED_URL</key>
-        <string>http://fex.linotype.com/update/client/mac/pro/plugins-4/appcast-small.xml</string>
+        <string>https://fex.linotype.com/update/client/mac/pro/plugins-4/appcast-small.xml</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
