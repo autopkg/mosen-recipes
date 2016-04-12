@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Description</key>
+  <string>Downloads the current release version of Intellij IDEA and imports into Munki.</string>
+  <key>Identifier</key>
+  <string>com.github.mosen.munki.IDEA-IU</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>IntelliJ IDEA Ultimate</string>
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>apps/intellij</string>
+    <key>MUNKI_CATEGORY</key>
+    <string>Developer</string>
+    <key>pkginfo</key>
+    <dict>
+      <key>catalogs</key>
+      <array>
+        <string>testing</string>
+      </array>
+      <key>category</key>
+      <string>%MUNKI_CATEGORY%</string>
+      <key>description</key>
+      <string>Every aspect of IntelliJ IDEA is specifically designed to maximize developer productivity.
+
+Together, powerful static code analysis and ergonomic design make development not only productive but also an enjoyable experience.</string>
+      <key>developer</key>
+      <string>JetBrains</string>
+      <key>display_name</key>
+      <string>IntelliJ IDEA Ultimate</string>
+      <key>name</key>
+      <string>%NAME%</string>
+      <key>unattended_install</key>
+      <true/>
+    </dict>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.2.9</string>
+  <key>ParentRecipe</key>
+  <string>com.github.mosen.download.IDEA-IU</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiImporter</string>
+      <key>Arguments</key>
+      <dict>
+        <key>munkiimport_appname</key>
+        <string>IntelliJ IDEA.app</string>
+        <key>pkg_path</key>
+        <string>%pathname%</string>
+        <key>repo_subdirectory</key>
+        <string>%MUNKI_REPO_SUBDIR%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
