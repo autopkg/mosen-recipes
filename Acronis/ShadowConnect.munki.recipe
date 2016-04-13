@@ -22,12 +22,16 @@
             </array>
             <key>description</key>
             <string>Acronis ShadowConnect</string>
+            <key>developer</key>
+            <string>Acronis</string>
             <key>display_name</key>
             <string>Acronis ShadowConnect</string>
             <key>minimum_os_version</key>
             <string>10.5.0</string>
             <key>name</key>
             <string>%NAME%</string>
+            <key>notes</key>
+            <string>Choice 100 is disabled because it is a script which forces restart</string>
             <key>installer_choices_xml</key>
             <array>
                 <dict>
@@ -39,6 +43,8 @@
                     <string>choice100</string>
                 </dict>
             </array>
+            <key>RestartAction</key>
+            <string>RequireRestart</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
