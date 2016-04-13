@@ -50,7 +50,7 @@
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.mosen.download.AcronisConnect</string>
+    <string>com.github.mosen.download.ShadowConnect</string>
     <key>Process</key>
     <array>
         <dict>
