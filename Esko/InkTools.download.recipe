@@ -4,16 +4,18 @@
 <dict>
     <key>Description</key>
     <string>
-    Download the current release of Esko Data Exchange.
+    Download the current release of Esko Ink Tools [TRIAL]
+
+    You must register with Esko to legitimately receive the download URL
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.EskoDataExchange</string>
+    <string>com.github.mosen.download.Esko.InkTools</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Esko Data Exchange</string>
+        <string>InkTools</string>
         <key>url</key>
-        <string>https://mysoftware.esko.com/public/downloads/Free/Esko%20Data%20Exchange/Latest/Mac</string>
+        <string>http://cdn.mysoftware.esko.com/downloads/Public/Trials/Latest/InkToolsTrial_16.0.0.396.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

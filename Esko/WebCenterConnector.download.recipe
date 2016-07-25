@@ -4,16 +4,18 @@
 <dict>
     <key>Description</key>
     <string>
-    Download the current release of Esko Data Exchange.
+    Download the current release of Esko WebCenter Connector
+
+    You must register to receive the download URL
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.EskoDataExchange</string>
+    <string>com.github.mosen.download.WebCenterConnector</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Esko Data Exchange</string>
+        <string>WebCenterConnector</string>
         <key>url</key>
-        <string>https://mysoftware.esko.com/public/downloads/Free/Esko%20Data%20Exchange/Latest/Mac</string>
+        <string>https://mysoftware.esko.com/public/downloads/Free/Webcenter%20Connector/Latest/Mac</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
