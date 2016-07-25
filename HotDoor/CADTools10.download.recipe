@@ -4,14 +4,14 @@
 <dict>
     <key>Description</key>
     <string>
-    Download the specified version of HotDoor CADTools
+    Download the specified version of HotDoor CADtools
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.CADTools10</string>
+    <string>com.github.mosen.download.CADtools10</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>CADTools</string>
+        <string>CADtools</string>
         <key>VERSION</key>
         <string>10</string>
         <key>DOWNLOAD_PREFIX</key>
