@@ -6,11 +6,7 @@
     <string>
     Import Esko Data Exchange into Munki.
 
-    A restart is required for the licensing system to work.
     You must register to receive the download URL legitimately.
-
-    Illustrator CS5 was removed from support in v12
-    v14 - Removed RecommendedRestart, because Licensing component is no longer installed (it required a restart).
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.munki.EskoDataExchange</string>
@@ -27,17 +23,22 @@
                 <string>Adobe Illustrator CS6</string>
                 <string>Adobe Illustrator CC</string>
                 <string>Adobe Illustrator CC 2014</string>
+                <string>Adobe Illustrator CC 2015</string>
             </array>
             <key>catalogs</key>
             <array>
                 <string>testing</string>
             </array>
+            <key>category</key>
+            <string>PrePress</string>
+            <key>developer</key>
+            <string>Esko</string>
             <key>description</key>
             <string>Esko Data Exchange for Adobe Illustrator</string>
             <key>display_name</key>
             <string>Esko Data Exchange for Adobe Illustrator</string>
             <key>minimum_os_version</key>
-            <string>10.6.0</string>
+            <string>10.10.0</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>notes</key>
@@ -56,7 +57,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%RECIPE_CACHE_DIR%/Esko Data Exchange Silent.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%.pkg</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
