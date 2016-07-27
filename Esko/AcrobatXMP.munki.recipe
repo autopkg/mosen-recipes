@@ -3,24 +3,22 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Import Esko Data Exchange into Munki</string>
+    <string>
+    Import the Acrobat XMP Plugin into Munki
+    </string>
     <key>Identifier</key>
-    <string>com.github.mosen.munki.EskoDataExchange</string>
+    <string>com.github.mosen.munki.Esko.AcrobatXMP</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Esko Data Exchange</string>
+        <string>AcrobatXMP</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>plugins/Esko</string>
         <key>pkginfo</key>
         <dict>
             <key>blocking_applications</key>
             <array>
-                <string>Adobe Illustrator CS6</string>
-                <string>Adobe Illustrator CC</string>
-                <string>Adobe Illustrator CC 2014</string>
-                <string>Adobe Illustrator CC 2015</string>
-                <string>Adobe Illustrator CC 2015.3</string>
+                <string>Adobe Acrobat</string>
             </array>
             <key>catalogs</key>
             <array>
@@ -28,18 +26,16 @@
             </array>
             <key>category</key>
             <string>PrePress</string>
+            <key>description</key>
+            <string>Esko XMP Plugin for Acrobat</string>
             <key>developer</key>
             <string>Esko</string>
-            <key>description</key>
-            <string>Esko Data Exchange for Adobe Illustrator</string>
             <key>display_name</key>
-            <string>Esko Data Exchange for Adobe Illustrator</string>
+            <string>Esko XMP Plugin for Acrobat</string>
             <key>minimum_os_version</key>
             <string>10.10.0</string>
             <key>name</key>
             <string>%NAME%</string>
-            <key>notes</key>
-            <string>Although this package requires illustrator, it does not check for the existence of Illustrator.</string>
             <key>unattended_install</key>
             <true/>
         </dict>
@@ -47,7 +43,7 @@
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.mosen.pkg.EskoDataExchange</string>
+    <string>com.github.mosen.pkg.Esko.AcrobatXMP</string>
     <key>Process</key>
     <array>
         <dict>
