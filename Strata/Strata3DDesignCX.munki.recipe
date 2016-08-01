@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Import the current release of Strata 3D Design CX for Mac into Munki</string>
+    <key>Identifier</key>
+    <string>com.github.mosen.munki.Strata3DDesignCX</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Strata3DDesignCX</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/Strata</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>blocking_applications</key>
+            <array>
+                <string>Strata Design 3D CX 8</string>
+            </array>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>category</key>
+            <string>3D</string>
+            <key>items_to_copy</key>
+            <array>
+              <dict>
+                <key>destination_path</key>
+                <string>/Applications</string>
+                <key>source_item</key>
+                <string>Strata Design 3D CX 8.app</string>
+              </dict>
+            </array>
+            <key>description</key>
+            <string>Strata 3D Design CX.</string>
+            <key>developer</key>
+            <string>Corastar</string>
+            <key>display_name</key>
+            <string>Strata 3D Design CX</string>
+            <key>installer_type</key>
+            <string>copy_from_dmg</string>
+            <key>minimum_os_version</key>
+            <string>10.9.0</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+        <key>repo_subdirectory</key>
+        <string>apps/Strata</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.mosen.download.Strata3DDesignCX</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
