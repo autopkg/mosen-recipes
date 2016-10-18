@@ -13,7 +13,7 @@
         <key>NAME</key>
         <string>ShadowConnect</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.grouplogic.com/files/sc/ShadowConnect%20Installer.zip</string>
+        <string>https://www.grouplogic.com/files/sc/ShadowConnect%20Installer.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

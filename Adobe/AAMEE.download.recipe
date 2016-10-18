@@ -16,9 +16,9 @@
         <key>NAME</key>
         <string>AAMEE</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://download.macromedia.com/pub/developer/creativesuite/AAMEE/mac/ApplicationManagerEnterprise_3_1_all.dmg</string>
+        <string>https://download.macromedia.com/pub/developer/creativesuite/AAMEE/mac/ApplicationManagerEnterprise_3_1_all.dmg</string>
         <key>DOWNLOAD_V2_URL</key>
-        <string>http://download.macromedia.com/pub/developer/creativesuite/AAMEE/mac/ApplicationManagerEnterprise_2_1_all.dmg</string>
+        <string>https://download.macromedia.com/pub/developer/creativesuite/AAMEE/mac/ApplicationManagerEnterprise_2_1_all.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

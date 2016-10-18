@@ -9,9 +9,9 @@
     It does not refer to the download location of the latest build.
 
     Plugin sparkleshare information available at http://fex.linotype.com/update/client/mac/pro/plugins(-4)/appcast-small.xml
-    
+
     Sample HTTP GET for the plugin sparkleshare feed:
-    GET /update/client/mac/pro/plugins/appcast-small.xml 
+    GET /update/client/mac/pro/plugins/appcast-small.xml
     XPRESS_7=2.0.9
     INCOPY_CC=3.5.1
     PHOTOSHOP_CS5=3.5.0
@@ -24,7 +24,7 @@
         <key>NAME</key>
         <string>FontExplorerXPro</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.fontexplorerx.com/download/free-trial/Mac</string>
+        <string>https://www.fontexplorerx.com/download/free-trial/Mac</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
