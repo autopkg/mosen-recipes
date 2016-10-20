@@ -42,6 +42,14 @@
                     <key>choiceIdentifier</key>
                     <string>choice100</string>
                 </dict>
+                <dict>
+                    <key>attributeSetting</key>
+                    <false/>
+                    <key>choiceAttribute</key>
+                    <string>enabled</string>
+                    <key>choiceIdentifier</key>
+                    <string>choice100</string>
+                </dict>
             </array>
             <key>RestartAction</key>
             <string>RequireRestart</string>
@@ -54,13 +62,35 @@
     <key>Process</key>
     <array>
         <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>flat_pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/ShadowConnect 1.0.5x02 Installer/Acronis ShadowConnect.pkg</string>    
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%_Unpacked</string>
+                <key>skip_payload</key>
+                <false/>
+            </dict>
+        </dict> 
+        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
             <key>Arguments</key>
             <dict>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/ShadowConnect 1.0.5x02 Installer/Acronis ShadowConnect.pkg</string>
             </dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
         </dict>        
     </array>
 </dict>

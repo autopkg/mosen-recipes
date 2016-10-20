@@ -13,8 +13,8 @@
     <dict>
         <key>NAME</key>
         <string>FieryEX550_560_ElCapitan</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://d1m2uyedaojrqy.cloudfront.net/FSO/xerox/XRX_C550_560/Mac128/en/v1.1/XC_EX560_v1_1_RX_FD50_v1.dmg</string>
+        <key>url</key>
+        <string>http://download.support.xerox.com/pub/drivers/550_560_DCP/drivers/macosx1011/en_GB/FIT101142635.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -23,11 +23,6 @@
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
-            </dict>
         </dict>
         <dict>
             <key>Processor</key>
