@@ -3,13 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Download the Fiery Extended Applications package (Command WorkStation, HotFolder)</string>
+    <string>Download the Fiery Extended Applications package (Command WorkStation, HotFolders, Remote Scan)</string>
     <key>Identifier</key>
     <string>com.github.mosen.download.EFI.FieryExtendedApplications</string>
     <key>Input</key>
     <dict>
         <key>product_id</key>
         <string>10000822</string>
+        <key>unique_id</key>
+        <string>fea_m_83_sp2_p</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -18,6 +20,10 @@
         <dict>
             <key>Processor</key>
             <string>HypatiaProvider</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
         </dict>
     </array>
 </dict>
