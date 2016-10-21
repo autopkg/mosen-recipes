@@ -15,7 +15,7 @@
         <key>VERSION</key>
         <string>8</string>
         <key>DOWNLOAD_PREFIX</key>
-        <string>http://hotdoor.com/downloads/HD/CADtools</string>
+        <string>https://hotdoor.com/downloads/HD/CADtools</string>
         <key>DOWNLOAD_SUFFIX</key>
         <string>.dmg.zip</string>
     </dict>
