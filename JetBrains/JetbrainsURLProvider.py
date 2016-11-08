@@ -41,87 +41,90 @@ __all__ = ["JetbrainsURLProvider"]
 PRODUCTS = ("IntelliJ IDEA", "RubyMine", "PyCharm", "PhpStorm", "WebStorm", "AppCode")
 
 # Product download landing page
-PRODUCT_URLS = { 
-	"IntelliJ IDEA": "http://www.jetbrains.com/idea/download/index.html",
-	"RubyMine": "http://www.jetbrains.com/ruby/download/index.html",
-	"PyCharm": "http://www.jetbrains.com/pycharm/download/index.html",
-	"PhpStorm": "http://www.jetbrains.com/phpstorm/download/index.html",
-	"WebStorm": "http://www.jetbrains.com/webstorm/download/index.html",
-	"AppCode": "http://www.jetbrains.com/objc/" # Odd one out, has no platform selector
+PRODUCT_URLS = {
+    "IntelliJ IDEA": "http://www.jetbrains.com/idea/download/index.html",
+    "RubyMine": "http://www.jetbrains.com/ruby/download/index.html",
+    "PyCharm": "http://www.jetbrains.com/pycharm/download/index.html",
+    "PhpStorm": "http://www.jetbrains.com/phpstorm/download/index.html",
+    "WebStorm": "http://www.jetbrains.com/webstorm/download/index.html",
+    "AppCode": "http://www.jetbrains.com/objc/"  # Odd one out, has no platform selector
 }
 
 # POST to this page to get download
 THANKYOU_URLS = {
-	"IntelliJ IDEA": "http://www.jetbrains.com/idea/download/download_thanks.jsp",
-	"RubyMine": "http://www.jetbrains.com/ruby/download/download_thanks.jsp",
-	"PyCharm": "http://www.jetbrains.com/pycharm/download/download_thanks.jsp",
-	"PhpStorm": "http://www.jetbrains.com/phpstorm/download/download_thanks.jsp",
-	"WebStorm": "http://www.jetbrains.com/webstorm/download/download_thanks.jsp"	
+    "IntelliJ IDEA": "http://www.jetbrains.com/idea/download/download_thanks.jsp",
+    "RubyMine": "http://www.jetbrains.com/ruby/download/download_thanks.jsp",
+    "PyCharm": "http://www.jetbrains.com/pycharm/download/download_thanks.jsp",
+    "PhpStorm": "http://www.jetbrains.com/phpstorm/download/download_thanks.jsp",
+    "WebStorm": "http://www.jetbrains.com/webstorm/download/download_thanks.jsp"
 }
 
 DEFAULT_PRODUCT = "IntelliJ IDEA"
-DEFAULT_CODE = "IU" # Only used for IDEA IU=Ultimate, IC=Community
+DEFAULT_CODE = "IU"  # Only used for IDEA IU=Ultimate, IC=Community
 DEFAULT_PLATFORM = "mac"
 
+
 class JetbrainsURLProvider(Processor):
-	description = "Provides URL to the latest JetBrains IDE release"
-	input_variables = {
-		"product": {
-			"required": True,
-			"description": "Jetbrains IDE product name, is one of: 'IntelliJ IDEA', 'RubyMine', 'PyCharm', 'PhpStorm', 'WebStorm', 'AppCode'."
-		},
-		"product_code": {
-			"required": False,
-			"description": "[optional] For IntelliJ IDEA, The product edition: ultimate or community, which is one of: 'IU', 'IC'. For PyCharm 'prof' or 'comm'"
-		},
-		"platform": {
-			"required": False,
-			"description": "[optional] The operating system platform, one of 'mac', 'pc', 'linux'"
-		}
-	}
-	output_variables = {
-		"url": {
-			"description": "URL to the latest JetBrains IDE release",
-		}
-	}
+    description = "Provides URL to the latest JetBrains IDE release"
+    input_variables = {
+        "product": {
+            "required": True,
+            "description": "Jetbrains IDE product name, is one of: 'IntelliJ IDEA', 'RubyMine', 'PyCharm', 'PhpStorm', 'WebStorm', 'AppCode'."
+        },
+        "product_code": {
+            "required": False,
+            "description": "[optional] For IntelliJ IDEA, The product edition: ultimate or community, which is one of: 'IU', 'IC'. For PyCharm 'prof' or 'comm'"
+        },
+        "platform": {
+            "required": False,
+            "description": "[optional] The operating system platform, one of 'mac', 'pc', 'linux'"
+        }
+    }
+    output_variables = {
+        "url": {
+            "description": "URL to the latest JetBrains IDE release",
+        }
+    }
 
-	__doc__ = description
+    __doc__ = description
 
-	def get_jetbrains_url(self, download_post_url, product, product_code):
-		params = {
-			"os": "mac"
-		}
+    def get_jetbrains_url(self, download_post_url, product, product_code):
+        params = {
+            "os": "mac"
+        }
 
-		if (product == "IntelliJ IDEA" or product == "PyCharm"): 
-			params['edition'] = product_code
+        if (product == "IntelliJ IDEA" or product == "PyCharm"):
+            params['edition'] = product_code
 
-		request = urllib2.Request(download_post_url, urllib.urlencode(params))
+        request = urllib2.Request(download_post_url, urllib.urlencode(params))
 
-		try:
-			url_handle = urllib2.urlopen(request)
-			html_response = url_handle.read()
-			url_handle.close()
-		except BaseException as e:
-			raise ProcessorError("Can't get download page for JetBrains Product: %s" % product)
-		
-		search_download_link = re.compile('href\s*=\s*[\'"]+(.*\.[dD][mM][gG])[\'"]+', re.MULTILINE).search(html_response)
+        try:
+            url_handle = urllib2.urlopen(request)
+            html_response = url_handle.read()
+            url_handle.close()
+        except BaseException as e:
+            raise ProcessorError("Can't get download page for JetBrains Product: %s" % product)
 
-		if (search_download_link):
-			download_link = search_download_link.group(1)
-		else:
-			raise ProcessorError("Couldn't find download link for JetBrains Product: %s" % product)
+        search_download_link = re.compile('href\s*=\s*[\'"]+(.*\.[dD][mM][gG])[\'"]+', re.MULTILINE).search(
+            html_response)
 
-		return download_link
+        if (search_download_link):
+            download_link = search_download_link.group(1)
+        else:
+            raise ProcessorError("Couldn't find download link for JetBrains Product: %s" % product)
 
-	def main(self):
-		# Take input params
-		product = self.env.get("product", DEFAULT_PRODUCT) # TODO: validate against PRODUCTS
-		product_code = self.env.get("product_code", DEFAULT_CODE)
-		platform = self.env.get("platform", DEFAULT_PLATFORM)
+        return download_link
 
-		self.env["url"] = self.get_jetbrains_url(
-			THANKYOU_URLS[product], product, product_code)
-		self.output("Found URL %s" % self.env["url"])
+    def main(self):
+        # Take input params
+        product = self.env.get("product", DEFAULT_PRODUCT)  # TODO: validate against PRODUCTS
+        product_code = self.env.get("product_code", DEFAULT_CODE)
+        platform = self.env.get("platform", DEFAULT_PLATFORM)
+
+        self.env["url"] = self.get_jetbrains_url(
+            THANKYOU_URLS[product], product, product_code)
+        self.output("Found URL %s" % self.env["url"])
+
 
 if __name__ == "__main__":
     processor = JetbrainsURLProvider()
