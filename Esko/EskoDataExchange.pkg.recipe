@@ -6,8 +6,6 @@
     <string>
     Remove AppleScript which creates alert dialogs, use exit status only.
     This will make package installation compatible with a silent workflow.
-
-    You must register to receive the download URL legitimately.
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.pkg.EskoDataExchange</string>
