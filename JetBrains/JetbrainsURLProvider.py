@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2015 
+# Copyright 2015
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -112,14 +112,14 @@ class JetbrainsURLProvider(Processor):
         """Request release information from JetBrains XHR Endpoint"""
         url = RELEASE_XHR_ENDPOINT.format(product_code, "123123123")
         request = urllib2.Request(url)
-        
+
         try:
             handle = urllib2.urlopen(request)
             response = handle.read()
             handle.close()
         except BaseException as e:
             raise ProcessorError("Cannot retrieve product information from JetBrains")
-            
+
         product_info = json.loads(response)
         return product_info[product_code][0]
 
@@ -130,12 +130,12 @@ class JetbrainsURLProvider(Processor):
 
         product_info = self.xhr_release_info(product_code)
         download_info = product_info["downloads"][platform]
-        
+
         self.env["url"] = download_info["link"]
         self.env["version"] = product_info["version"]
         self.env["majorVersion"] = product_info["majorVersion"]
         self.env["build"] = product_info["build"]
-        
+
         self.output("Found URL %s" % self.env["url"])
 
 
