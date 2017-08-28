@@ -79,7 +79,7 @@ def _new_software_request(product_id, host_id=12345, os_name='Mac OS X', os_vers
 
     The response to this request is a list of CDN's
 
-    fsm_version=4.0.0.30|uid=88f11a1df1e02ae493f8e6d9f7eb1288|os_version=10.12.6|os_type=mac|os_lang=en_GB|check_mode=manual|fsm_pref=NotifyAll|installed_products=cws:5.8.0.39,frs:6.4.0.21,sp_cws:2,sp_frs:2,sp_hf:2|clean_install=0
+    attr 3 fsm_version=4.0.0.30|uid=88f11a1df1e02ae493f8e6d9f7eb1288|os_version=10.12.6|os_type=mac|os_lang=en_GB|check_mode=manual|fsm_pref=NotifyAll|installed_products=cws:5.8.0.39,frs:6.4.0.21,sp_cws:2,sp_frs:2,sp_hf:2|clean_install=0
     """
     req = '''
 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> 
