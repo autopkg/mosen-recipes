@@ -70,9 +70,9 @@ class AdobeProvisioningToolkitProvider(Processor):
             "default": "ALL",
             "required": False
         },
-        "provfile": {
-            "description": "Desired output path of the prov.xml",
-            "default": "/tmp/Acro12000prov.xml",
+        "provfile_dir": {
+            "description": "Desired output directory of the prov.xml",
+            "default": "/tmp/",
             "required": False
         }
     }
@@ -111,7 +111,7 @@ class AdobeProvisioningToolkitProvider(Processor):
             '--serial={}'.format(self.env['serial']),
             '--leid={}'.format(self.env['leid']),
         #    '--locales={}'.format(self.env['locale']),
-            '--provfile={}'.format(self.env['provfile'])
+            '--provfilepath={}'.format(self.env['provfile_dir'])  # Documentation says `provfile` but its actually `provfilepath`.
         ]
 
         if self.env.get('regsuppress', False):
@@ -132,3 +132,5 @@ class AdobeProvisioningToolkitProvider(Processor):
                 raise ProcessorError('Trying to execute adobe_prtk: Unknown Error')
 
         self.output(stdout)
+
+        self.env["provfile_path"] = os.path.join(self.env['provfile_dir'], 'prov.xml')
