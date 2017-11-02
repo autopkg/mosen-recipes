@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Description</key>
+        <string>Creates the volume license prov.xml file</string>
+        <key>Identifier</key>
+        <string>com.github.mosen.license.Adobe.ProvisioningToolkit</string>
+        <key>Input</key>
+        <dict>
+            <key>TOOL</key>
+            <string>VolumeSerialize</string>
+            <key>SERIAL</key>
+            <string>1234</string>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>0.2.0</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Processor</key>
+                <string>AdobeProvisioningToolkitProvider</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>tool</key>
+                    <string>VolumeSerialize</string>
+                    <key>serial</key>
+                    <string>%SERIAL%</string>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+</plist>
