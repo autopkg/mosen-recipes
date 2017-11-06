@@ -19,7 +19,8 @@ APTEE_ERRORS = {
     9: 'Upgrade serial not supported',
     14: 'Unknown Error',
     19: 'The provXML is missing',
-    20: 'Loading of permanent activation grace failed (due to malformed xml, corrupt or missing Enigma data, or some other error)',
+    20: 'Loading of permanent activation grace failed (due to malformed xml, corrupt or missing Enigma data, or \
+    some other error)',
     21: 'Unable to update PCF/SLCache',
     22: 'Unable to open a PCF/SLCache session',
     23: 'The prov.xml file contains invalid empty tag values',
