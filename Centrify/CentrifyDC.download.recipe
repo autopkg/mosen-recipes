@@ -6,7 +6,7 @@
     <string>
         Download the most recent version of Centrify DirectControl for Mac (.tgz package)
 
-        In order to do this you must have a legitimate support portal login, whether it is an evaluation or 
+        In order to do this you must have a legitimate support portal login, whether it is an evaluation or
         you have purchased centrify products.
 
         This is currently broken because we need a session to get the downloads url.
@@ -18,9 +18,9 @@
         <key>NAME</key>
         <string>CentrifyDC</string>
         <key>CENTRIFY_DOWNLOAD_URL</key>
-        <string>http://www.centrify.com/support/download.asp?asset=</string>
+        <string>https://www.centrify.com/support/download.asp?asset=</string>
         <key>SUPPORT_CENTER_URL</key>
-        <string>http://www.centrify.com/support/mac-support-center.asp</string>
+        <string>https://www.centrify.com/support/mac-support-center.asp</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
