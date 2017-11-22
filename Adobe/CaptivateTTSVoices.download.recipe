@@ -3,13 +3,13 @@
 <plist version="1.0">
     <dict>
         <key>Description</key>
-        <string>Downloads Acrobat DC Web Multilanguage DMG</string>
+        <string>Downloads Adobe e-Learning Assets for Captivate 2017</string>
         <key>Identifier</key>
-        <string>com.github.mosen.download.Adobe.AcrobatDC</string>
+        <string>com.github.mosen.download.Adobe.CaptivateTTSVoices</string>
         <key>Input</key>
         <dict>
             <key>DOWNLOAD_URL</key>
-            <string>http://trials3.adobe.com/AdobeProducts/APRO/Acrobat_HelpX/osx10/Acrobat_DC_Web_WWMUI.dmg</string>
+            <string>http://www.adobe.com/go/Cp2017_mac_voices_installer</string>
         </dict>
         <key>MinimumVersion</key>
         <string>0.2.0</string>

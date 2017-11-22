@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest Adobe Acrobat Pro base installer
+as provided at https://helpx.adobe.com/acrobat/kb/acrobat-dc-downloads.html
+
+MAJOR_VERSION can be either 'DC' or '2015'. DC should be the 'Continuous' track,
+'2015' is the current latest 'Classic' track.
+
+For more information on Continuous vs. Classic "tracks" see:
+http://www.adobe.com/devnet-docs/acrobatetk/tools/AdminGuide/whatsnewdc.html#which-track-should-i-use
+
+and
+
+http://www.adobe.com/devnet-docs/acrobatetk/tools/AdminGuide/whatsnewdc.html#preference-and-file-paths
+</string>
+    <key>Identifier</key>
+    <string>com.github.timsutton.download.adobe-acrobat-pro-base</string>
+    <key>Input</key>
+    <dict>
+        <key>MAJOR_VERSION</key>
+        <string>DC</string>
+        <key>NAME</key>
+        <string>AdobeAcrobatPro</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://trials3.adobe.com/AdobeProducts/APRO/Acrobat_HelpX/osx10/Acrobat_%MAJOR_VERSION%_Web_WWMUI.dmg</string>
+                <key>request_headers</key>
+                <dict>
+                    <key>Cookie</key>
+                    <string>MM_TRIALS=1234</string>
+                    <key>User-Agent</key>
+                    <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36</string>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>flat_pkg_path</key>
+                <string>%pathname%/Acrobat %MAJOR_VERSION%/Acrobat %MAJOR_VERSION% Installer.pkg</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkgroot</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/root/Applications</string>
+                <key>pkgdirs</key>
+                <dict/>
+            </dict>
+            <key>Processor</key>
+            <string>PkgRootCreator</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/application.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/root/Applications/Adobe Acrobat %MAJOR_VERSION%</string>
+            </dict>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/root/Applications/Adobe Acrobat %MAJOR_VERSION%/Adobe Acrobat.app/Contents/Info.plist</string>
+            </dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+        </dict>
+    </array>
+</dict>
+</plist>
