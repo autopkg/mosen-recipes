@@ -52,6 +52,10 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
             "description":
                 "Path to the final built package."
         },
+        "disable_browser_plugin": {
+            "required": False,
+            "description": "Disable installation of PDF browser plugins"
+        }
     }
     output_variables = {
         "acrobat_pro_customization_wizard_runner_summary_result": {
@@ -108,6 +112,10 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
 
             if self.env.get('serial_number'):
                 cmd.extend(['--serialnumber', self.env['serial_number']])
+
+            if self.env.get('disable_browser_plugin'):
+                cmd.extend(['--disablebrowser'])
+
             self.output(
                 "Calling Customization Wizard with command: "
                 "%s" % ", ".join(cmd))
