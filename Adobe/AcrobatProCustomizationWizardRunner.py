@@ -52,9 +52,13 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
             "description":
                 "Path to the final built package."
         },
+        "serial_number": {
+            "required": False,
+            "description": "Serial number for volume license installs"
+        },
         "disable_browser_plugin": {
             "required": False,
-            "description": "Disable installation of PDF browser plugins"
+            "description": "Disable installation of PDF browser plugins."
         }
     }
     output_variables = {
