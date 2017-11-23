@@ -106,8 +106,8 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
                 '--featurelockdown', lockdown_plist_path
             ]
 
-            if self.env.get('serial'):
-                cmd.extend(['--serialnumber', self.env['serial']])
+            if self.env.get('serial_number'):
+                cmd.extend(['--serialnumber', self.env['serial_number']])
             self.output(
                 "Calling Customization Wizard with command: "
                 "%s" % ", ".join(cmd))
