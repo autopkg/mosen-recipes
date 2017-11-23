@@ -122,7 +122,7 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
 
             self.output(
                 "Calling Customization Wizard with command: "
-                "%s" % ", ".join(cmd))
+                "'%s'" % "' '".join(cmd))
             exitcode = subprocess.call(cmd)
             if exitcode:
                 raise ProcessorError(
