@@ -73,15 +73,10 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
     def gen_prov_xml(self):
         '''Configures the prov.xml content at the known path so that it
         can be later passed to pdptool.sh'''
-        if os.path.exists(self.PROV_XML_PATH):
-            os.remove(self.PROV_XML_PATH)
-        plistlib.writePlistToString({'EULA_ACCEPT': 'YES'})
-        with open(self.PROV_XML_PATH, 'w') as fd:
+        with open(self.PROV_XML_PATH, 'w+') as fd:
             fd.write(plistlib.writePlistToString({'EULA_ACCEPT': 'YES'}))
 
-
     def main(self):
-        '''Find the download URL'''
         self.gen_prov_xml()
         if not self.env.get('FEATURE_LOCKDOWN_PLIST'):
             raise ProcessorError(
