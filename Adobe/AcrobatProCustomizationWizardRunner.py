@@ -96,9 +96,14 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
             if custwiz_dmg:
                 custwiz_mnt = self.mount(custwiz_dmg_path)
                 custwiz_app_path = os.path.join(custwiz_mnt, custwiz_dmg_source_path)
+            else:
+                self.output('No result trying to mount wizard dmg at path: %s' % self.env['wizard_dmg_path'])
+
             if acro_dmg:
                 acro_mnt = self.mount(acro_dmg_path)
                 acro_pkg_path = os.path.join(acro_mnt, acro_dmg_source_path)
+            else:
+                self.output('No result trying to mount Acrobat dmg at path: %s' % self.env['acrobat_pkg_path'])
 
             custwiz_bin = os.path.join(custwiz_app_path, 'Contents/Resources/pdptool.sh')
             cmd = [
