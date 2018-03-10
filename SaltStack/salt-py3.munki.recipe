@@ -3,13 +3,13 @@
 <plist version="1.0">
 	<dict>
 		<key>Description</key>
-		<string>Import SaltStack into munki</string>
+		<string>Import SaltStack python3 into munki</string>
 		<key>Identifier</key>
-		<string>com.github.mosen.munki.salt</string>
+		<string>com.github.mosen.munki.salt.py3</string>
 		<key>Input</key>
 		<dict>
 			<key>NAME</key>
-			<string>salt</string>
+			<string>salt-py3</string>
 			<key>MUNKI_REPO_SUBDIR</key>
 			<string>support/SaltStack</string>
 			<key>pkginfo</key>
@@ -33,7 +33,7 @@
 		<key>MinimumVersion</key>
 		<string>0.2.0</string>
 		<key>ParentRecipe</key>
-		<string>com.github.mosen.download.salt</string>
+		<string>com.github.mosen.download.salt.py3</string>
 		<key>Process</key>
 		<array>
 			<dict>
