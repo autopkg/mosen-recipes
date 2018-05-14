@@ -84,7 +84,7 @@
                     <key>source_path</key>
                     <string>%RECIPE_DIR%/%POLICIES_FILENAME%</string>
                     <key>destination_path</key>
-                    <string>%pkgroot%/Applications/Firefox.app/Contents/Resources/distribution</string>
+                    <string>%pkgroot%/Applications/Firefox.app/Contents/Resources/distribution/policies.json</string>
                 </dict>
                 <key>Processor</key>
                 <string>Copier</string>
