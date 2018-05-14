@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Description</key>
+        <string>Downloads Firefox disk image, builds a package, injects the policies.json, then imports the pkg into
+            your Munki repo.
+
+            Place the policies.json in the same directory as the recipe. You may optionally use a different name
+            by setting POLICIES_FILENAME.
+
+            You might consider setting a unique PKG_ID to differentiate your org's "flavor" of Firefox.
+
+            Values for RELEASE correspond to directories here:
+            http://download-origin.cdn.mozilla.net/pub/mozilla.org/firefox/releases/
+            Some useful values are:
+            'latest', 'latest-10.0esr', 'latest-esr', 'latest-3.6', 'latest-beta'
+            LOCALE corresponds to directories at
+            http://download-origin.cdn.mozilla.net/pub/mozilla.org/firefox/releases/$FIREFOX_BUILD/mac/
+            Examples include 'en-US', 'de', 'ja-JP-mac', 'sv-SE', and 'zh-TW'
+
+            No idea if all Firefox builds are available in all the same localizations,
+            so you may need to verify that any particular combination is offered.
+
+            Adapted from FirefoxAutoconfig.munki.recipe by Greg Neagle
+        </string>
+        <key>Identifier</key>
+        <string>com.github.mosen.munki.FirefoxESRPolicies</string>
+        <key>Input</key>
+        <dict>
+            <key>MUNKI_REPO_SUBDIR</key>
+            <string>apps/firefox</string>
+            <key>NAME</key>
+            <string>Firefox</string>
+            <key>pkginfo</key>
+            <dict>
+                <key>catalogs</key>
+                <array>
+                    <string>testing</string>
+                </array>
+                <key>description</key>
+                <string>Mozilla Firefox is a free and open source web browser.</string>
+                <key>display_name</key>
+                <string>Mozilla Firefox</string>
+                <key>name</key>
+                <string>%NAME%</string>
+                <key>unattended_install</key>
+                <true/>
+            </dict>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>0.4.0</string>
+        <key>ParentRecipe</key>
+        <string>com.github.mosen.pkg.FirefoxESRPolicies</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Arguments</key>
+                <dict>
+                    <key>repo_subdirectory</key>
+                    <string>%MUNKI_REPO_SUBDIR%</string>
+                </dict>
+                <key>Processor</key>
+                <string>MunkiImporter</string>
+            </dict>
+        </array>
+    </dict>
+</plist>
