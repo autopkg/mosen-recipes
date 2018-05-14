@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Download the Fiery Extended Applications package (Command WorkStation, HotFolders, Remote Scan)</string>
+    <key>Identifier</key>
+    <string>com.github.mosen.download.EFI.FieryExtendedApplications</string>
+    <key>Input</key>
+    <dict>
+        <key>product_id</key>
+        <string>10000822</string>
+        <key>unique_id</key>
+        <string>fea_m_83_sp2_p</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>HypatiaProvider</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+        </dict>
+    </array>
+</dict>
+</plist>

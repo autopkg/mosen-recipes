@@ -3,19 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>
-    Download the current release of Esko PrePress Essentials (Trial)
-
-    You must register to receive the download URL
-    </string>
+    <string>Downloads latest version of Seafile client for mac</string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.EskoPrepressEssentials</string>
+    <string>com.github.mosen.download.SeafileClient</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>EskoPrepressEssentials</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://mysoftware.esko.com/trials/download.aspx?id=56</string>
+        <string>SeafileClient</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -23,11 +17,22 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLDownloader</string>
+            <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>http://www.seafile.com/en/download/</string>
+                <key>re_pattern</key>
+                <string>(http[s]+://.*/seafile-client-.*\d\.dmg)</string>
+                <key>result_output_var_name</key>
+                <string>url</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>

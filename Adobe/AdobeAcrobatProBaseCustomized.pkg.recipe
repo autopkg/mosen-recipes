@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest Adobe Acrobat Pro DC (Continuous) Enterprise installer
+as provided at https://helpx.adobe.com/acrobat/kb/acrobat-dc-downloads.html,
+and uses the Customization Wizard for DC to output a customized installer package.
+
+MAJOR_VERSION can be updated if Adobe updates this to 2017, 2018, etc.
+
+FEATURE_LOCKDOWN_PLIST can be provided to add additional parameters as documented on
+Adobe's Acrobat Enterprise website. The default provided by this recipe is to
+disable the built-in auto-updater for both the "DC" and "2015" (Classic) releases
+of Acrobat Pro DC. Other parameters may be added by the admin as desired.
+
+SERIAL_NUMBER can contain a serial number for the license. If omitted, either
+Named Licensing or a license file provided by a serialization/device license
+from CCP can be used.
+</string>
+    <key>Identifier</key>
+    <string>com.github.timsutton.pkg.adobe-acrobat-pro-base-customized</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>AdobeAcrobatPro</string>
+        <key>SERIAL_NUMBER</key>
+        <string></string>
+        <key>FEATURE_LOCKDOWN_PLIST</key>
+        <dict>
+            <key>DC</key>
+            <dict>
+                <key>FeatureLockdown</key>
+                <dict>
+                    <key>bUpdater</key>
+                    <false/>
+                </dict>
+            </dict>
+            <key>2015</key>
+            <dict>
+                <key>FeatureLockdown</key>
+                <dict>
+                    <key>bUpdater</key>
+                    <false/>
+                </dict>
+            </dict>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.timsutton.download.adobe-acrobat-pro-base</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://ardownload.adobe.com/pub/adobe/acrobat/mac/AcrobatDC/misc/AdobeCustomizationWizard1500720033_DC.dmg</string>
+                <key>request_headers</key>
+                <dict>
+                    <key>User-Agent</key>
+                    <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36</string>
+                </dict>
+                <key>download_dir</key>
+                <string>%RECIPE_CACHE_DIR%/custwiz</string>
+                <key>filename</key>
+                <string>custwiz.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>AcrobatProCustomizationWizardRunner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>acrobat_pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/Acrobat_%MAJOR_VERSION%_Web_WWMUI.dmg/Acrobat %MAJOR_VERSION%/Acrobat %MAJOR_VERSION% Installer.pkg</string>
+                <key>wizard_dmg_path</key>
+                <string>%RECIPE_CACHE_DIR%/custwiz/custwiz.dmg/Acrobat Customization Wizard DC.app</string>
+                <key>output_pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                <key>serial_number</key>
+                <string>%SERIAL_NUMBER%</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>

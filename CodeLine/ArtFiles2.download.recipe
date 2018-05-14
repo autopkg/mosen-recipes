@@ -15,7 +15,7 @@
         <key>NAME</key>
         <string>ArtFiles2</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.code-line.com/software/download/ArtFiles2.dmg</string>
+        <string>https://www.code-line.com/software/download/ArtFiles2.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

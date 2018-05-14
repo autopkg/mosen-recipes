@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>
+    Download the Xerox/EFI Fiery EX550/560 Driver
+
+    This version now includes support for Yosemite 10.10, but the vendor package has not changed package identifier or version number.
+    For this reason, we identify this package as FieryEX550_560_Yosemite.
+    </string>
+    <key>Identifier</key>
+    <string>com.github.mosen.download.FieryEX550_560_Yosemite</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>FieryEX550_560_Yosemite</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://download.support.xerox.com/pub/drivers/550_560_DCP/drivers/macosx1010/nl/Mac_os_10_10_ex560_2_0.zip</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>

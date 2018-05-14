@@ -18,6 +18,8 @@ CADTools7.download
 CADTools7.pkg
 CADTools8.download
 CADTools8.pkg
+CADTools9.download
+CADTools9.pkg
 
 BarcodeProducer.download
 BarcodeProducer.munki

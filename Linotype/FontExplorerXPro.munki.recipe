@@ -29,18 +29,18 @@
             <key>display_name</key>
             <string>FontExplorer X Pro</string>
             <key>minimum_os_version</key>
-            <string>10.6.0</string>
+            <string>10.8.0</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>postinstall_script</key>
             <string>#!/bin/sh
-/Applications/FontExplorer X Pro.app/Contents/PlugIns/PlugIns.bundle/Contents/Resources/plugin-installer --install
+/Applications/FontExplorer\ X\ Pro.app/Contents/PlugIns/PlugIns.bundle/Contents/Resources/plugin-installer --install
 
 exit 0
             </string>
             <key>preuninstall_script</key>
             <string>#!/bin/sh
-/Applications/FontExplorer X Pro.app/Contents/PlugIns/PlugIns.bundle/Contents/Resources/plugin-installer --uninstall
+/Applications/FontExplorer\ X\ Pro.app/Contents/PlugIns/PlugIns.bundle/Contents/Resources/plugin-installer --uninstall
 
 exit 0
             </string>

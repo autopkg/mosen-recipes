@@ -3,19 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>
-    Download the current release of Esko CT/LP Plugin for Photoshop
-
-    You must register to receive the download URL
-    </string>
+    <string>Download the current release of HDR Light Studio for Strata</string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.EskoCTLP14</string>
+    <string>com.github.mosen.download.HDRLightStudio</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>CT-LP</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://mysoftware.esko.com/Free/Download.aspx?id=16</string>
+        <string>HDRLightStudio</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -27,9 +21,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
-                <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>http://www.stratadownloads.com/download/HDRLightStudioforStrata.dmg</string>
             </dict>
         </dict>
         <dict>
