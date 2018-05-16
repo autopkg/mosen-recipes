@@ -5,8 +5,8 @@
         <key>Description</key>
         <string>Downloads Firefox disk image and builds a package, injecting a policies.json file as "distribution"
 
-            Place the policies.json in the same directory as the recipe. You may optionally use a different name
-            by setting POLICIES_FILENAME.
+            Create a `distribution` directory containing the policies.json in the same directory as the recipe.
+            You may optionally use a different directory name (inside RECIPE_DIR) by setting DISTRIBUTION_PATH.
 
             Values for RELEASE correspond to directories here:
             http://download-origin.cdn.mozilla.net/pub/mozilla.org/firefox/releases/
@@ -31,8 +31,8 @@
             <string>en_US</string>
             <key>NAME</key>
             <string>Firefox</string>
-            <key>POLICIES_FILENAME</key>
-            <string>policies.json</string>
+            <key>DISTRIBUTION_PATH</key>
+            <string>distribution</string>
             <key>ORG_NAME</key>
             <string>Customized</string>
             <key>PKG_ID</key>
@@ -82,7 +82,7 @@
                 <key>Arguments</key>
                 <dict>
                     <key>source_path</key>
-                    <string>%RECIPE_DIR%/%POLICIES_FILENAME%</string>
+                    <string>%RECIPE_DIR%/%DISTRIBUTION_PATH%</string>
                     <key>destination_path</key>
                     <string>%pkgroot%/Applications/Firefox.app/Contents/Resources/distribution/policies.json</string>
                 </dict>

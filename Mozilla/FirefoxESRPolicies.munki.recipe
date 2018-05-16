@@ -6,8 +6,8 @@
         <string>Downloads Firefox disk image, builds a package, injects the policies.json, then imports the pkg into
             your Munki repo.
 
-            Place the policies.json in the same directory as the recipe. You may optionally use a different name
-            by setting POLICIES_FILENAME.
+            Create a `distribution` directory containing the policies.json in the same directory as the recipe.
+            You may optionally use a different directory name (inside RECIPE_DIR) by setting DISTRIBUTION_PATH.
 
             You might consider setting a unique PKG_ID to differentiate your org's "flavor" of Firefox.
 
