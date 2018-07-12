@@ -115,7 +115,7 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
             ]
 
             if self.env.get('serial_number'):
-                cmd.extend(['--serialnumber', self.env['serial_number']])
+                cmd.extend(['--serialnumber'])
 
             if self.env.get('disable_browser_plugin'):
                 cmd.extend(['--disablebrowser'])
