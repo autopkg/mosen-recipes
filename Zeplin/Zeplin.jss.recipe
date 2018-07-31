@@ -5,7 +5,7 @@
         <key>Description</key>
         <string>Downloads the current release version of Zeplin and imports into a JAMF Pro Server.</string>
         <key>Identifier</key>
-        <string>com.github.mosen.jss.Tower</string>
+        <string>com.github.mosen.jss.Zeplin</string>
         <key>Input</key>
         <dict>
             <key>CATEGORY</key>
