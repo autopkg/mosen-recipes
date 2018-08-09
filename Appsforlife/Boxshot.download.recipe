@@ -13,7 +13,7 @@
         <key>NAME</key>
         <string>Boxshot</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://files.boxshot.com/apps/Boxshot4.dmg</string>
+        <string>https://cdn.appsforlife.com/apps/boxshot-4.15.1/Boxshot4.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
