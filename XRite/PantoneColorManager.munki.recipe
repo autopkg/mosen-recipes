@@ -32,10 +32,14 @@
             </array>
             <key>description</key>
             <string>COLOR MANAGER Software is a robust desktop application that provides the assurance and confidence to use the latest PANTONE Colors accurately.</string>
+            <key>developer</key>
+            <string>X-Rite</string>
             <key>display_name</key>
             <string>PANTONE Color Manager</string>
             <key>name</key>
             <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
         </dict>
     </dict>
     <key>MinimumVersion</key>
@@ -45,23 +49,10 @@
     <key>Process</key>
     <array>
         <dict>
-            <key>Processor</key>
-            <string>Unarchiver</string>
-            <key>Arguments</key>
-            <dict>
-                <key>archive_path</key>
-                <string>%pathname%</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
-                <key>purge_destination</key>
-                <true/>
-            </dict>
-        </dict>
-        <dict>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.pkg</string>
+                <string>%pathname%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
