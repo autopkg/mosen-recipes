@@ -9,7 +9,7 @@
     You must register to receive the download URL
     </string>
     <key>Identifier</key>
-    <string>com.github.mosen.download.Esko.DeskpackEssentials</string>
+    <string>com.github.mosen.download.EskoDeskpackEssentials</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
