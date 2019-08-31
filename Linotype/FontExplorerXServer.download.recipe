@@ -15,7 +15,7 @@
         <key>NAME</key>
         <string>FontExplorerXServer</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://fex.linotype.com/download/server/FontExplorerXServer.zip</string>
+        <string>https://fex.linotype.com/download/server/FontExplorerXServer.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
