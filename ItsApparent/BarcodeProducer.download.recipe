@@ -13,7 +13,7 @@
         <key>NAME</key>
         <string>Barcode Producer</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://cdn.itsapparent.com/downloads/barcodeproducer.dmg</string>
+        <string>https://cdn.itsapparent.com/downloads/barcodeproducer.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
