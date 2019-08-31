@@ -9,7 +9,7 @@
         <key>Input</key>
         <dict>
             <key>DOWNLOAD_URL</key>
-            <string>http://www.adobe.com/go/Cp2017_mac_assets_installer</string>
+            <string>https://www.adobe.com/go/Cp2017_mac_assets_installer</string>
         </dict>
         <key>MinimumVersion</key>
         <string>0.2.0</string>
