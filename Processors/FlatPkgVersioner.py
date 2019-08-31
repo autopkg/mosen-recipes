@@ -15,6 +15,7 @@
 # Basically copied line for line and adapted from Greg Neagle's Munki project.
 # See: https://github.com/munki/munki/blob/master/code/client/munkilib/munkicommon.py#L1507
 
+from __future__ import absolute_import
 import os
 import tempfile
 import subprocess

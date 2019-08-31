@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from __future__ import absolute_import
+from __future__ import print_function
 from xml.etree import ElementTree
 import urllib
 import urllib2
@@ -153,7 +155,7 @@ class HypatiaProvider(Processor):
         # except BaseException as e:
         #     raise ProcessorError("Can't get download URL for EFI Product ID: %s" % self.env['product_id'])
 
-        print html_response
+        print(html_response)
 
 
 if __name__ == "__main__":

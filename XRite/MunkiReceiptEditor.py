@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from __future__ import absolute_import
 from autopkglib import Processor, ProcessorError
 import FoundationPlist
 
@@ -48,14 +49,14 @@ class MunkiReceiptEditor(Processor):
             return {}
         try:
             return FoundationPlist.readPlist(pathname)
-        except Exception, err:
+        except Exception as err:
             raise ProcessorError(
                 'Could not read %s: %s' % (pathname, err))
 
     def writePlist(self, data, pathname):
         try:
             FoundationPlist.writePlist(data, pathname)
-        except Exception, err:
+        except Exception as err:
             raise ProcessorError(
                 'Could not write %s: %s' % (pathname, err))
 
