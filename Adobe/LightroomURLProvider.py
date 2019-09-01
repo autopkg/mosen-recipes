@@ -17,15 +17,18 @@
 from __future__ import absolute_import
 
 import re
-import urllib2
 
 from autopkglib import Processor, ProcessorError
 
 try:
-    from urllib import request as urllib  # For Python 3
+    from urllib.parse import unquote  # For Python 3
 except ImportError:
-    import urllib  # For Python 2
+    from urllib import unquote  # For Python 2
 
+try:
+    from urllib.parse import urlopen  # For Python 3
+except ImportError:
+    from urllib2 import urlopen  # For Python 2
 
 __all__ = ["LightroomURLProvider"]
 
@@ -88,9 +91,8 @@ class LightroomURLProvider(Processor):
 		"""
 
 		check_url_version = check_url % major_version
-		request = urllib2.Request(check_url_version)
 		try:
-			url_handle = urllib2.urlopen(request)
+			url_handle = urlopen(check_url_version)
 			lua_response = url_handle.read()
 			url_handle.close()
 		except BaseException as e:
@@ -129,10 +131,9 @@ class LightroomURLProvider(Processor):
 		"""
 
 		product_url = LIGHTROOM_PRODUCT_URL % (major_version, platform, lang)
-		request = urllib2.Request(product_url)
 
 		try:
-			url_handle = urllib2.urlopen(request)
+			url_handle = urlopen(product_url)
 			html_response = url_handle.read()
 			url_handle.close()
 		except BaseException as e:
@@ -146,14 +147,13 @@ class LightroomURLProvider(Processor):
 		else:
 			raise ProcessorError("Can't get Lightroom download URL from product site.")
 
-		download_url_fqdn = ADOBE_DOWNLOAD_PREFIX + '/' + urllib.unquote(download_url).replace('&amp;', '&')
+		download_url_fqdn = ADOBE_DOWNLOAD_PREFIX + '/' + unquote(download_url).replace('&amp;', '&')
 
 		# ok now we have to get the href of the ACTUAL dmg from the thankyou page, so time to request the download page
 		self.output('Request download page: %s' % download_url_fqdn)
-		request = urllib2.Request(download_url_fqdn)
 
 		try:
-			url_handle = urllib2.urlopen(request)
+			url_handle = urlopen(download_url_fqdn)
 			html_response = url_handle.read()
 			url_handle.close()
 		except BaseException as e:
