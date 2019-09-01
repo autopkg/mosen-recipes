@@ -15,10 +15,9 @@
 # limitations under the License.
 
 from __future__ import absolute_import
-import re
-import urllib
-import urllib2
+
 import json
+import urllib2
 
 from autopkglib import Processor, ProcessorError
 
