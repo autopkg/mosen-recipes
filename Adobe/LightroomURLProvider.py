@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2014 
+# Copyright 2014
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ class LightroomURLProvider(Processor):
 			url_handle.close()
 		except BaseException as e:
 			raise ProcessorError("Can't get Lightroom update information for version %s, using check url %s" % (major_version, check_url_version))
-		
+
 		v_match = re.compile(RE_VERSION, re.MULTILINE).search(lua_response)
 
 		if v_match:
@@ -124,7 +124,7 @@ class LightroomURLProvider(Processor):
 
 		product_url = LIGHTROOM_PRODUCT_URL % (major_version, platform, lang)
 		request = urllib2.Request(product_url)
-		
+
 		try:
 			url_handle = urllib2.urlopen(request)
 			html_response = url_handle.read()
@@ -151,7 +151,7 @@ class LightroomURLProvider(Processor):
 			html_response = url_handle.read()
 			url_handle.close()
 		except BaseException as e:
-			raise ProcessorError("Can't get Lightroom download page using url %s" % download_url_fqdn)		
+			raise ProcessorError("Can't get Lightroom download page using url %s" % download_url_fqdn)
 
 
 		dmg_url_match = re.compile(RE_HTML_DOWNLOAD_URL).search(html_response)
