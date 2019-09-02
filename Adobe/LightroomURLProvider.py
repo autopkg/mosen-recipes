@@ -39,10 +39,10 @@ LIGHTROOM_PRODUCT_URL = "http://www.adobe.com/go/lightroom_%s_updates_%s_%s"
 ADOBE_DOWNLOAD_PREFIX = "http://www.adobe.com/support/downloads"
 MAJOR_VERSION_DEFAULT = "5"
 
-RE_VERSION = 'versionString\s=\s"([^"]*)"'
-RE_PRODUCT_URL = 'downloadURL\s=\s(.*)' # Can substitute variables later
-RE_LOCAL_DESCRIPTION = '%s\s=\s\{^([^}]*)}' # Must be multi line
-RE_HTML_DOWNLOAD_URL = '<a class="submit[^"]*"\shref="([^"]*)"'
+RE_VERSION = r'versionString\s=\s"([^"]*)"'
+RE_PRODUCT_URL = r'downloadURL\s=\s(.*)' # Can substitute variables later
+RE_LOCAL_DESCRIPTION = r'%s\s=\s\{^([^}]*)}' # Must be multi line
+RE_HTML_DOWNLOAD_URL = r'<a class="submit[^"]*"\shref="([^"]*)"'
 
 
 class LightroomURLProvider(Processor):
