@@ -13,8 +13,10 @@
 # limitations under the License.
 
 from __future__ import absolute_import
-from autopkglib import Processor, ProcessorError
+
 import FoundationPlist
+from autopkglib import Processor, ProcessorError
+
 
 class MunkiReceiptEditor(Processor):
     description = "Modify receipt information after PkgInfo has been generated"
