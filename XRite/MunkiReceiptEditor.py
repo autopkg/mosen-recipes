@@ -69,7 +69,7 @@ class MunkiReceiptEditor(Processor):
 
         for receipt in pkginfo["receipts"]:
             if 'packageid' in receipt and receipt['packageid'] == packageid:
-                if self.env.get("optional") == True:
+                if self.env.get("optional") is True:
                     receipt['optional'] = True
                     self.output("Made package id %s optional" % packageid)
 
