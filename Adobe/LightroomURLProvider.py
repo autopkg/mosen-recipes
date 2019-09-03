@@ -95,7 +95,7 @@ class LightroomURLProvider(Processor):
             url_handle = urlopen(check_url_version)
             lua_response = url_handle.read()
             url_handle.close()
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError("Can't get Lightroom update information for version %s, using check url %s" % (major_version, check_url_version))
 
         v_match = re.compile(RE_VERSION, re.MULTILINE).search(lua_response)
@@ -136,7 +136,7 @@ class LightroomURLProvider(Processor):
             url_handle = urlopen(product_url)
             html_response = url_handle.read()
             url_handle.close()
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError("Can't get Lightroom product page using url %s" % product_url)
 
         # Match the link to the download page
@@ -156,7 +156,7 @@ class LightroomURLProvider(Processor):
             url_handle = urlopen(download_url_fqdn)
             html_response = url_handle.read()
             url_handle.close()
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError("Can't get Lightroom download page using url %s" % download_url_fqdn)
 
 

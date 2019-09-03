@@ -51,14 +51,14 @@ class MunkiReceiptEditor(Processor):
             return {}
         try:
             return FoundationPlist.readPlist(pathname)
-        except BaseException as err:
+        except Exception as err:
             raise ProcessorError(
                 'Could not read %s: %s' % (pathname, err))
 
     def writePlist(self, data, pathname):
         try:
             FoundationPlist.writePlist(data, pathname)
-        except BaseException as err:
+        except Exception as err:
             raise ProcessorError(
                 'Could not write %s: %s' % (pathname, err))
 

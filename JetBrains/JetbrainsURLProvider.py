@@ -120,7 +120,7 @@ class JetbrainsURLProvider(Processor):
             handle = urlopen(url)
             response = handle.read()
             handle.close()
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError("Cannot retrieve product information from JetBrains")
 
         product_info = json.loads(response)

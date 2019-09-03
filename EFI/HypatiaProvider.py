@@ -150,7 +150,7 @@ class HypatiaProvider(Processor):
         url_handle = urllib2.urlopen(request, request_content)
         html_response = url_handle.read()
         url_handle.close()
-        # except BaseException as e:
+        # except Exception as e:
         #     raise ProcessorError("Can't get download URL for EFI Product ID: %s" % self.env['product_id'])
 
         print(html_response)
