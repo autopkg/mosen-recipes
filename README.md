@@ -1,6 +1,3 @@
-autopkg-recipes
-===============
+# mosen-recipes
 
-## The repo has moved ##
-The new location is at https://github.com/autopkg/mosen-recipes
-
+Recipes for [AutoPkg](https://github.com/autopkg/autopkg)
