@@ -44,15 +44,9 @@
             <key>unattended_install</key>
             <true/>
             <key>uninstall_method</key>
-            <string>uninstall_script</string>
-            <key>uninstall_script</key>
-            <string>
-                #!/bin/sh
-                # Automatically unbinds from domain and uninstalls agent.
-                /usr/share/centrifydc/bin/uninstall.sh
-            </string>
+            <string>/usr/share/centrifydc/bin/uninstall.sh</string>
             <key>uninstallable</key>
-            <true/>    
+            <true/>
         </dict>
     </dict>
     <key>MinimumVersion</key>
