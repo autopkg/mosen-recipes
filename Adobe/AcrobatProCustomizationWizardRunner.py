@@ -18,16 +18,16 @@
 # Based on a simple Customization Wrapper script from:
 # https://gist.github.com/timsutton/212bfed9da2056a070a12ac27febeb71
 
+from __future__ import absolute_import
+
 import os
 import plistlib
 import subprocess
 import tempfile
 
-from pprint import pprint
-
+import FoundationPlist
 from autopkglib import Processor, ProcessorError
 from autopkglib.DmgMounter import DmgMounter
-from autopkglib import FoundationPlist
 
 __all__ = ["AcrobatProCustomizationWizardRunner"]
 

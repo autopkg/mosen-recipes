@@ -12,8 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from autopkglib import Processor, ProcessorError
+from __future__ import absolute_import
+
 import FoundationPlist
+from autopkglib import Processor, ProcessorError
+
 
 class MunkiReceiptEditor(Processor):
     description = "Modify receipt information after PkgInfo has been generated"
@@ -48,14 +51,14 @@ class MunkiReceiptEditor(Processor):
             return {}
         try:
             return FoundationPlist.readPlist(pathname)
-        except Exception, err:
+        except Exception as err:
             raise ProcessorError(
                 'Could not read %s: %s' % (pathname, err))
 
     def writePlist(self, data, pathname):
         try:
             FoundationPlist.writePlist(data, pathname)
-        except Exception, err:
+        except Exception as err:
             raise ProcessorError(
                 'Could not write %s: %s' % (pathname, err))
 
@@ -66,7 +69,7 @@ class MunkiReceiptEditor(Processor):
 
         for receipt in pkginfo["receipts"]:
             if 'packageid' in receipt and receipt['packageid'] == packageid:
-                if self.env.get("optional") == True:
+                if self.env.get("optional") is True:
                     receipt['optional'] = True
                     self.output("Made package id %s optional" % packageid)
 
