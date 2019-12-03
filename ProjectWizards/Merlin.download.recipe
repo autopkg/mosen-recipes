@@ -15,7 +15,7 @@
         <key>NAME</key>
         <string>Merlin</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.projectwizards.net/downloads/Merlin2.zip</string>
+        <string>https://www.projectwizards.net/downloads/Merlin2.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
