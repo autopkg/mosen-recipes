@@ -21,7 +21,7 @@ import json
 from autopkglib import Processor, ProcessorError
 
 try:
-    from urllib.parse import urlopen  # For Python 3
+    from urllib.request import urlopen  # For Python 3
 except ImportError:
     from urllib2 import urlopen  # For Python 2
 
