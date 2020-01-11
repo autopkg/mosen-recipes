@@ -62,11 +62,11 @@ PRODUCT_CODES = {
     "ReSharper Ultimate": "RSU",
     "TeamCity": "TC",
     "WebStorm": "WS",
-    "YouTrack": "YT",
+    "YouTrack": "YT",  # Not a valid product code as of 2020-01-11.
     "YouTrack Standalone": "YTD",
     "YouTrack Workflow Editor": "YTWE",
     "UpSource": "US",
-    "0xDBE": "DBE",
+    "0xDBE": "DBE",  # Not a valid product code as of 2020-01-11.
     "DataGrip": "DG",
 }
 
