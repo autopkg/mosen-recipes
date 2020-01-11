@@ -49,6 +49,7 @@ PRODUCT_CODES = {
     "hub": "HB",
     "IntelliJ IDEA Ultimate": "IIU",
     "IntelliJ IDEA Community": "IIC",
+    "IntelliJ IDEA EDU": "IIE",
     "mps": "MPS",
     "mpsIntelliJIDEAPlugin": "MPSIIP",
     "PyCharm Professional": "PCP",
