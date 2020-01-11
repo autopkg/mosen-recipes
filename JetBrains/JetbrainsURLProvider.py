@@ -48,7 +48,7 @@ PRODUCT_CODES = {
     "dotTraceProfilingSDK": "DPPS",
     "hub": "HB",
     "IntelliJ IDEA Ultimate": "IIU",
-    "IntelliJ IDEA Standard": "II",
+    "IntelliJ IDEA Community": "IIC",
     "mps": "MPS",
     "mpsIntelliJIDEAPlugin": "MPSIIP",
     "PyCharm Professional": "PCP",
