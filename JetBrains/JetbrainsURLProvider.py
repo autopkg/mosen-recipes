@@ -51,7 +51,6 @@ PRODUCT_CODES = {
     "IntelliJ IDEA Standard": "II",
     "mps": "MPS",
     "mpsIntelliJIDEAPlugin": "MPSIIP",
-    "PyCharm": "PC",
     "PyCharm Professional": "PCP",
     "PyCharm Community": "PCC",
     "PyCharm EDU": "PCE",
