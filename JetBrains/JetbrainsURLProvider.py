@@ -18,12 +18,8 @@ from __future__ import absolute_import
 
 import json
 
-from autopkglib import Processor, ProcessorError
+from autopkglib import Processor, ProcessorError, URLGetter
 
-try:
-    from urllib.request import urlopen  # For Python 3
-except ImportError:
-    from urllib2 import urlopen  # For Python 2
 
 __all__ = ["JetbrainsURLProvider"]
 
@@ -52,10 +48,10 @@ PRODUCT_CODES = {
     "dotTraceProfilingSDK": "DPPS",
     "hub": "HB",
     "IntelliJ IDEA Ultimate": "IIU",
-    "IntelliJ IDEA Standard": "II",
+    "IntelliJ IDEA Community": "IIC",
+    "IntelliJ IDEA EDU": "IIE",
     "mps": "MPS",
     "mpsIntelliJIDEAPlugin": "MPSIIP",
-    "PyCharm": "PC",
     "PyCharm Professional": "PCP",
     "PyCharm Community": "PCC",
     "PyCharm EDU": "PCE",
@@ -67,47 +63,43 @@ PRODUCT_CODES = {
     "ReSharper Ultimate": "RSU",
     "TeamCity": "TC",
     "WebStorm": "WS",
-    "YouTrack": "YT",
+    "YouTrack": "YT",  # Not a valid product code as of 2020-01-11.
     "YouTrack Standalone": "YTD",
     "YouTrack Workflow Editor": "YTWE",
     "UpSource": "US",
-    "0xDBE": "DBE",
-    "DataGrip": "DG"
+    "0xDBE": "DBE",  # Not a valid product code as of 2020-01-11.
+    "DataGrip": "DG",
 }
 
 RELEASE_XHR_ENDPOINT = "https://data.services.jetbrains.com/products/releases?code={0}&latest=true&type=release&_={1}"
 
 
 DEFAULT_PRODUCT = "IntelliJ IDEA"
-DEFAULT_CODE = PRODUCT_CODES["IntelliJ IDEA Ultimate"]  # Only used for IDEA IU=Ultimate, IC=Community
+DEFAULT_CODE = PRODUCT_CODES[
+    "IntelliJ IDEA Ultimate"
+]  # Only used for IDEA IU=Ultimate, IC=Community
 DEFAULT_PLATFORM = "mac"
 
 
-class JetbrainsURLProvider(Processor):
+class JetbrainsURLProvider(URLGetter):
     description = "Provides URL to the latest JetBrains IDE release"
     input_variables = {
         "product_code": {
             "required": True,
-            "description": "The product code. AppCode=AC, CLion=CL, IDEA Ultimate=IIU, PyCharm Pro=PCP, PhpStorm=PS, RubyMine=RM, WebStorm=WS"
+            "description": "The product code. AppCode=AC, CLion=CL, IDEA Ultimate=IIU, PyCharm Pro=PCP, PhpStorm=PS, RubyMine=RM, WebStorm=WS",
         },
         "platform": {
             "required": False,
-            "description": "[optional] The operating system platform, one of 'mac', 'windows', 'linux'"
-        }
+            "description": "[optional] The operating system platform, one of 'mac', 'windows', 'linux'",
+        },
     }
     output_variables = {
-        "url": {
-            "description": "URL to the latest JetBrains IDE release",
-        },
-        "version": {
-            "description": "Product version",
-        },
+        "url": {"description": "URL to the latest JetBrains IDE release",},
+        "version": {"description": "Product version",},
         "majorVersion": {
             "description": "Product major version, usually first two numbers",
         },
-        "build": {
-            "description": "Product build number",
-        }
+        "build": {"description": "Product build number",},
     }
 
     __doc__ = description
@@ -115,17 +107,9 @@ class JetbrainsURLProvider(Processor):
     def xhr_release_info(self, product_code):
         """Request release information from JetBrains XHR Endpoint"""
         url = RELEASE_XHR_ENDPOINT.format(product_code, "123123123")
-
-        try:
-            handle = urlopen(url)
-            response = handle.read()
-            handle.close()
-        except Exception as e:
-            raise ProcessorError("Cannot retrieve product information from JetBrains")
-
+        response = self.download(url)
         product_info = json.loads(response)
         return product_info[product_code][0]
-
 
     def main(self):
         product_code = self.env.get("product_code", DEFAULT_CODE)
