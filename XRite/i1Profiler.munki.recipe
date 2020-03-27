@@ -95,7 +95,7 @@
             <key>Arguments</key>
             <dict>
                 <key>input_plist_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/i1profiler_payload/i1Profiler.app/Contents/Info.plist</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/i1profiler_payload/Applications/i1Profiler/i1Profiler.app/Contents/Info.plist</string>
             </dict>
         </dict>
         <dict>
