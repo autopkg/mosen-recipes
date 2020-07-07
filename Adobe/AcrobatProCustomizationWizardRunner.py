@@ -74,7 +74,7 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
         '''Configures the prov.xml content at the known path so that it
         can be later passed to pdptool.sh'''
         with open(self.PROV_XML_PATH, 'w+') as fd:
-            fd.write(plistlib.writePlistToString({'EULA_ACCEPT': 'YES'}))
+            fd.write(plistlib.dumps({'EULA_ACCEPT': 'YES'}, fmt=plistlib.FMT_XML).decode('utf-8'))
 
     def main(self):
         self.gen_prov_xml()
@@ -82,9 +82,8 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
             raise ProcessorError(
                 "This recipe requires the FEATURE_LOCKDOWN_PLIST Input "
                 "variable to be set")
-        lockdown_plist_path = tempfile.mkstemp()[1]
-        FoundationPlist.writePlist(self.env['FEATURE_LOCKDOWN_PLIST'],
-            lockdown_plist_path)
+        lockdown_plist = tempfile.NamedTemporaryFile()
+        lockdown_plist.write(plistlib.dumps(self.env['FEATURE_LOCKDOWN_PLIST'], fmt=plistlib.FMT_XML))
 
         # Mount both the Acrobat and Customization wizard paths
         (custwiz_dmg_path, custwiz_dmg, custwiz_dmg_source_path) = \
@@ -111,7 +110,7 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
                 '--input', acro_pkg_path,
                 '--output', self.env['output_pkg_path'],
                 '--prov', self.PROV_XML_PATH,
-                '--featurelockdown', lockdown_plist_path
+                '--featurelockdown', lockdown_plist.name
             ]
 
             if self.env.get('serial_number'):
@@ -140,7 +139,7 @@ class AcrobatProCustomizationWizardRunner(DmgMounter):
         }
 
         # clean up
-        os.remove(lockdown_plist_path)
+        lockdown_plist.close()
         os.remove(self.PROV_XML_PATH)
 
 
