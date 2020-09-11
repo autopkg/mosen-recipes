@@ -3,9 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>
-        Download latest dmg containing app. Latest version is always at this URL.
-    </string>
+    <string>Download latest dmg containing app. Latest version is always at this URL.</string>
     <key>Identifier</key>
     <string>com.github.mosen.download.BarcodeProducer</string>
     <key>Input</key>
@@ -13,7 +11,7 @@
         <key>NAME</key>
         <string>Barcode Producer</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://cdn.itsapparent.com/downloads/barcodeproducer.dmg</string>
+        <string>https://r.barcodeproducer.com/app/download_mac/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -27,9 +25,29 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>%NAME%.zip</string>
             </dict>
         </dict>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/Barcode Producer.app</string>
+				<key>requirements</key>
+				<string>identifier "com.barcodeproducer.barcodeproducer" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = XLRYTV33X4</string>
+			</dict>
+		</dict>
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
