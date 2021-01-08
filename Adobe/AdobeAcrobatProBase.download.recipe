@@ -35,7 +35,7 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/AdminGuide/whatsnewdc.html#pre
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://trials3.adobe.com/AdobeProducts/APRO/Acrobat_HelpX/osx10/Acrobat_%MAJOR_VERSION%_Web_WWMUI.dmg</string>
+                <string>https://trials3.adobe.com/AdobeProducts/APRO/Acrobat_HelpX/osx10/Acrobat_%MAJOR_VERSION%_Web_WWMUI.dmg</string>
                 <key>request_headers</key>
                 <dict>
                     <key>Cookie</key>
