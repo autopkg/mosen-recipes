@@ -46,6 +46,7 @@ PRODUCT_CODES = {
     "dotTrace": "DP",
     "dotTraceCommandLineTools": "DPCLT",
     "dotTraceProfilingSDK": "DPPS",
+    "Gateway": "GW"
     "hub": "HB",
     "IntelliJ IDEA Ultimate": "IIU",
     "IntelliJ IDEA Community": "IIC",
