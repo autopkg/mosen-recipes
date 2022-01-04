@@ -91,7 +91,7 @@ class JetbrainsURLProvider(URLGetter):
         },
         "platform": {
             "required": False,
-            "description": "[optional] The operating system platform, one of 'mac', 'windows', 'linux'",
+            "description": "[optional] The operating system platform, one of 'mac', 'macM1', 'windows', 'linux'",
         },
     }
     output_variables = {
