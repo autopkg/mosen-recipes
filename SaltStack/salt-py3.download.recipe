@@ -23,7 +23,7 @@
 				<key>url</key>
 				<string>https://repo.saltstack.com/#osx</string>
 				<key>re_pattern</key>
-				<string>Latest release: ([\d\.]+)</string>
+				<string>osx\/salt\-([\d\.\\-]+)\-py3-x86_64.pkg</string>
 				<key>result_output_var_name</key>
 				<string>version</string>
 			</dict>
