@@ -31,19 +31,19 @@ in the PYVERSION variable to switch between 2 (default) and 3 versions of the in
 				<string>version</string>
 			</dict>
 		</dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>https://repo.saltproject.io/#osx</string>
-                <key>re_pattern</key>
-                <string>href="(https://repo.saltproject.io/osx/salt-%version%.*%PYVERSION%-x86_64\.pkg)"</string>
-                <key>result_output_var_name</key>
-                <string>url</string>
-            </dict>
-        </dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>https://repo.saltproject.io/#osx</string>
+				<key>re_pattern</key>
+				<string>href="(https://repo.saltproject.io/osx/salt-%version%.*%PYVERSION%-x86_64\.pkg)"</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
