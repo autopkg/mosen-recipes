@@ -38,6 +38,8 @@ PRODUCTS = ("IntelliJ IDEA", "RubyMine", "PyCharm", "PhpStorm", "WebStorm", "App
 PRODUCT_CODES = {
     "AppCode": "AC",
     "CLion": "CL",
+    "DataGrip": "DG",
+    "DataSpell": "DS",
     "dotCover": "DC",
     "dotCoverCommandLineTools": "DCCLT",
     "dotMemory": "DM",
@@ -48,28 +50,28 @@ PRODUCT_CODES = {
     "dotTraceProfilingSDK": "DPPS",
     "Gateway": "GW",
     "hub": "HB",
-    "IntelliJ IDEA Ultimate": "IIU",
     "IntelliJ IDEA Community": "IIC",
     "IntelliJ IDEA EDU": "IIE",
+    "IntelliJ IDEA Ultimate": "IIU",
     "mps": "MPS",
     "mpsIntelliJIDEAPlugin": "MPSIIP",
-    "PyCharm Professional": "PCP",
+    "PhpStorm": "PS",
     "PyCharm Community": "PCC",
     "PyCharm EDU": "PCE",
-    "PhpStorm": "PS",
-    "RubyMine": "RM",
+    "PyCharm Professional": "PCP",
     "ReSharper": "RS",
     "ReSharper Command Line Tools": "RSCLT",
     "ReSharper CPP": "RC",
     "ReSharper Ultimate": "RSU",
+    "Rider": "RD",
+    "RubyMine": "RM",
     "TeamCity": "TC",
+    "UpSource": "US",
     "WebStorm": "WS",
     "YouTrack": "YT",  # Not a valid product code as of 2020-01-11.
     "YouTrack Standalone": "YTD",
     "YouTrack Workflow Editor": "YTWE",
-    "UpSource": "US",
     "0xDBE": "DBE",  # Not a valid product code as of 2020-01-11.
-    "DataGrip": "DG",
 }
 
 RELEASE_XHR_ENDPOINT = "https://data.services.jetbrains.com/products/releases?code={0}&latest=true&type=release&_={1}"
@@ -91,7 +93,7 @@ class JetbrainsURLProvider(URLGetter):
         },
         "platform": {
             "required": False,
-            "description": "[optional] The operating system platform, one of 'mac', 'windows', 'linux'",
+            "description": "[optional] The operating system platform, one of 'mac', 'macM1', 'windows', 'linux'",
         },
     }
     output_variables = {
