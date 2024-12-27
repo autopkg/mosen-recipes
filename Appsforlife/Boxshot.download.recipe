@@ -5,6 +5,12 @@
     <key>Description</key>
     <string>
     Download the Appsforlife Boxshot Application
+
+Valid values for ARCH include:
+- "Intel" (default)
+- "ARM" (Apple Silicon)
+
+Only tested with MAJOR_VERSION 5. 4 is still available but not tested.
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.download.Appsforlife.Boxshot</string>
@@ -12,20 +18,35 @@
     <dict>
         <key>NAME</key>
         <string>Boxshot</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://cdn.appsforlife.com/apps/boxshot-4.15.1/Boxshot4.dmg</string>
+        <key>ARCH</key>
+        <string>Intel</string>
+        <key>MAJOR_VERSION</key>
+        <string>5</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
         <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>re_pattern</key>
+                <string>//(cdn\.appsforlife\.com/boxshot/%MAJOR_VERSION%/[\d\.]+/Boxshot%MAJOR_VERSION%_%ARCH%\.dmg)</string>
+                <key>result_output_var_name</key>
+                <string>urlpath</string>
+                <key>url</key>
+                <string>https://boxshot.com/downloads/</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+        </dict>
+        <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>https://%urlpath%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
