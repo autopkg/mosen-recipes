@@ -17,6 +17,15 @@
 	<array>
 		<dict>
 			<key>Processor</key>
+			<string>DeprecationWarning</string>
+			<key>Arguments</key>
+			<dict>
+				<key>warning_message</key>
+				<string>The Salt Project is no longer building macOS packages (details: https://saltproject.io/blog/streamlining-cicd-package-distribution/). This recipe is deprecated and will be removed in the future.</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
 			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
