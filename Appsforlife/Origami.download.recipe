@@ -5,6 +5,12 @@
     <key>Description</key>
     <string>
     Download the Appsforlife Origami Application/Plugin for Illustrator
+
+Valid values for ARCH include:
+- "Intel" (default)
+- "ARM" (Apple Silicon)
+
+Only tested with MAJOR_VERSION 3. 2 is still available but not tested.
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.download.Appsforlife.Origami</string>
@@ -12,20 +18,35 @@
     <dict>
         <key>NAME</key>
         <string>Origami</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://files.boxshot.com/apps/Origami.dmg</string>
+        <key>ARCH</key>
+        <string>Intel</string>
+        <key>MAJOR_VERSION</key>
+        <string>3</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
         <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>re_pattern</key>
+                <string>//(cdn\.appsforlife\.com/origami/%MAJOR_VERSION%/[\d\.]+/Origami%MAJOR_VERSION%_%ARCH%\.dmg)</string>
+                <key>result_output_var_name</key>
+                <string>urlpath</string>
+                <key>url</key>
+                <string>https://boxshot.com/downloads/</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+        </dict>
+        <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>https://%urlpath%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
