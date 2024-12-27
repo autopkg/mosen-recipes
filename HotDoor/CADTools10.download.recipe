@@ -4,7 +4,7 @@
 <dict>
     <key>Description</key>
     <string>
-    Download the specified version of HotDoor CADtools
+    Download the specified version of HotDoor CADtools. Tested with version 10, 11, 12, 13, and 14.
     </string>
     <key>Identifier</key>
     <string>com.github.mosen.download.CADtools10</string>
