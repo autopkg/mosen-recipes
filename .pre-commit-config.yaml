@@ -13,10 +13,10 @@ repos:
   - id: check-added-large-files
     args: ['--maxkb=100']
   - id: check-ast
-  - id: check-byte-order-marker
   - id: check-case-conflict
   - id: check-docstring-first
   - id: check-merge-conflict
+  - id: fix-byte-order-marker
   - id: mixed-line-ending
   - id: check-xml
   - id: check-yaml
