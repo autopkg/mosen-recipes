@@ -43,6 +43,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>Unarchiver</string>
             <key>Arguments</key>
             <dict>
@@ -67,10 +71,6 @@
 				<string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.pkg</string>
 			</dict>
 		</dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
     </array>
 </dict>
 </plist>
