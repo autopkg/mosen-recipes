@@ -15,7 +15,7 @@
         <key>NAME</key>
         <string>PowerTrapper</string>
         <key>url</key>
-        <string>http://cdn.mysoftware.esko.com/downloads/Public/Trials/Latest/PowerTrapper_Trial_16_0_0_66.dmg</string>
+        <string>https://cdn.mysoftware.esko.com/downloads/Public/Trials/Latest/PowerTrapper_Trial_16_0_0_66.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
