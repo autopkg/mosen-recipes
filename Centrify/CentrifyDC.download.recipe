@@ -18,9 +18,9 @@
         <key>NAME</key>
         <string>CentrifyDC</string>
         <key>CENTRIFY_DOWNLOAD_URL</key>
-        <string>http://www.centrify.com/support/download.asp?asset=</string>
+        <string>https://www.centrify.com/support/download.asp?asset=</string>
         <key>SUPPORT_CENTER_URL</key>
-        <string>http://www.centrify.com/support/mac-support-center.asp</string>
+        <string>https://www.centrify.com/support/mac-support-center.asp</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

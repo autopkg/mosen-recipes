@@ -14,7 +14,7 @@
         <key>NAME</key>
         <string>FieryEX550_560_ElCapitan</string>
         <key>url</key>
-        <string>http://download.support.xerox.com/pub/drivers/550_560_DCP/drivers/macosx1011/en_GB/FIT101142635.zip</string>
+        <string>https://download.support.xerox.com/pub/drivers/550_560_DCP/drivers/macosx1011/en_GB/FIT101142635.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

@@ -58,7 +58,7 @@ from CCP can be used.
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://ardownload.adobe.com/pub/adobe/acrobat/mac/AcrobatDC/misc/AdobeCustomizationWizard1500720033_DC.dmg</string>
+                <string>https://ardownload.adobe.com/pub/adobe/acrobat/mac/AcrobatDC/misc/AdobeCustomizationWizard1500720033_DC.dmg</string>
                 <key>request_headers</key>
                 <dict>
                     <key>User-Agent</key>

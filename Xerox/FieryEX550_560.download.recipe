@@ -15,7 +15,7 @@
         <key>NAME</key>
         <string>FieryEX550_560</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://download.support.xerox.com/pub/drivers/XRIP_550_Fiery/drivers/macosx106/da/XC_EX560_v2_0_R_EFIGSBpDX_FD45_v1.dmg</string>
+        <string>https://download.support.xerox.com/pub/drivers/XRIP_550_Fiery/drivers/macosx106/da/XC_EX560_v2_0_R_EFIGSBpDX_FD45_v1.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
