@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/homebysix/pre-commit-macadmin
-  rev: v1.6.1
+  rev: v1.25.1
   hooks:
   - id: check-autopkg-recipes
     args: ['--recipe-prefix', 'com.github.mosen.']
@@ -8,7 +8,7 @@ repos:
   - id: forbid-autopkg-trust-info
   - id: check-plists
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v2.3.0
+  rev: v6.0.0
   hooks:
   - id: check-added-large-files
     args: ['--maxkb=100']
